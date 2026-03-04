@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – StockPro</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h1>Stock<span>Pro</span></h1>
+      <p>Gestión de Inventario</p>
+    </div>
+    <nav>
+      <p class="nav-label">Principal</p>
+      <a id="nav-dashboard"       class="nav-item" href="panel_dashboard.html"><span class="ico">🏠</span> Dashboard</a>
+      <p class="nav-label">Inventario</p>
+      <a id="nav-inventario"      class="nav-item" href="panel_inventario.html"><span class="ico">📦</span> Productos</a>
+      <a id="nav-nuevo-producto"  class="nav-item" href="panel_nuevo-producto.html"><span class="ico">➕</span> Nuevo Producto</a>
+      <a class="nav-item"><span class="ico">🏷️</span> Categorías</a>
+      <a class="nav-item"><span class="ico">🏭</span> Proveedores</a>
+      <p class="nav-label">Ventas</p>
+      <a id="nav-ventas"          class="nav-item" href="panel_ventas.html"><span class="ico">🛒</span> Registro de Ventas</a>
+      <a id="nav-nueva-venta"     class="nav-item" href="panel_nueva-venta.html"><span class="ico">💳</span> Nueva Venta</a>
+      <a class="nav-item"><span class="ico">👥</span> Clientes</a>
+      <p class="nav-label">Análisis</p>
+      <a id="nav-reportes"        class="nav-item" href="panel_reportes.html"><span class="ico">📊</span> Reportes</a>
+      <a class="nav-item"><span class="ico">📈</span> Estadísticas</a>
+      <p class="nav-label">Sistema</p>
+      <a id="nav-configuracion"   class="nav-item" href="panel_configuracion.html"><span class="ico">⚙️</span> Configuración</a>
+    </nav>
+    <div class="sidebar-perfil">
+      <div class="avatar">A</div>
+      <div class="perfil-info">
+        <p>Admin General</p>
+        <span>admin@stockpro.com</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header>
+      <div class="h-left">
+        <h2>Dashboard</h2>
+        <span>Inicio › Dashboard</span>
+      </div>
+      <div class="h-right">
+        <button class="btn-ico">🔔</button>
+        <button class="btn-ico">❓</button>
+        <a href="panel_nueva-venta.html" class="btn btn-p">+ Nueva Venta</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="alerta">
+        ⚠️ <div><strong>Alerta de stock bajo:</strong> 3 productos tienen menos de 5 unidades.
+        <a href="panel_inventario.html">Ver productos</a></div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric r">
+          <label>Ventas Hoy</label>
+          <strong>$8,450</strong>
+          <small class="up">▲ 12% vs ayer</small>
+          <em>💰</em>
+        </div>
+        <div class="metric n">
+          <label>Productos en Stock</label>
+          <strong>1,284</strong>
+          <small class="down">▼ 3 sin stock</small>
+          <em>📦</em>
+        </div>
+        <div class="metric g">
+          <label>Transacciones Hoy</label>
+          <strong>47</strong>
+          <small class="up">▲ 8 vs ayer</small>
+          <em>🛒</em>
+        </div>
+        <div class="metric r">
+          <label>Ingresos del Mes</label>
+          <strong>$124K</strong>
+          <small class="up">▲ 5% vs mes ant.</small>
+          <em>📈</em>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="card-title">Ventas últimos 7 días <small>Actualizado hoy</small></div>
+          <div class="graf"><span>📊</span> Gráfico de barras (Chart.js)</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Productos más vendidos <small>Este mes</small></div>
+          <div class="bar-row">
+            <header><span>Audífonos Bluetooth Pro</span><span>324 uds.</span></header>
+            <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          </div>
+          <div class="bar-row">
+            <header><span>Cable USB-C 2m</span><span>290 uds.</span></header>
+            <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+          </div>
+          <div class="bar-row">
+            <header><span>Teclado Mecánico RGB</span><span>215 uds.</span></header>
+            <div class="bar-track"><div class="bar-fill" style="width:54%"></div></div>
+          </div>
+          <div class="bar-row">
+            <header><span>Mouse Inalámbrico</span><span>180 uds.</span></header>
+            <div class="bar-track"><div class="bar-fill" style="width:45%"></div></div>
+          </div>
+          <div class="bar-row">
+            <header><span>Hub USB 4 Puertos</span><span>142 uds.</span></header>
+            <div class="bar-track"><div class="bar-fill" style="width:36%"></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Actividad Reciente <small>Últimas 24 horas</small></div>
+          <ul class="activity">
+            <li><span class="dot dot-r"></span><div><div>Venta #1047 – $320.00 – María García</div><div class="act-time">Hace 8 minutos</div></div></li>
+            <li><span class="dot dot-n"></span><div><div>Stock actualizado: Teclado Mecánico RGB (+50 uds.)</div><div class="act-time">Hace 32 minutos</div></div></li>
+            <li><span class="dot dot-r"></span><div><div>Venta #1046 – $145.00 – Carlos López</div><div class="act-time">Hace 1 hora</div></div></li>
+            <li><span class="dot dot-g"></span><div><div>Producto nuevo: Hub USB 4 Puertos agregado</div><div class="act-time">Hace 2 horas</div></div></li>
+            <li><span class="dot dot-r"></span><div><div>⚠️ Stock bajo: Audífonos In-Ear (2 uds.)</div><div class="act-time">Hace 3 horas</div></div></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Inventario por Categoría</div>
+          <div class="graf"><span>🍩</span> Gráfico de torta (Chart.js)</div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span>StockPro v1.0.0 – Gestión de Inventario y Ventas</span>
+      <span>© 2026 · Todos los derechos reservados</span>
+    </footer>
+  </div>
+
+</div>
+<script src="js/sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+/* nuevo-producto.css */
+
+.img-upload {
+  border: 2px dashed var(--gb);
+  border-radius: var(--r);
+  padding: 28px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--gm);
+  font-size: 13px;
+  transition: border-color .15s, background .15s;
+}
+.img-upload:hover { border-color: var(--rojo); background: var(--rojo-s); }
+.img-upload span  { font-size: 28px; display: block; margin-bottom: 6px; }

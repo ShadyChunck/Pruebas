@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportes – StockPro</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/reportes.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h1>Stock<span>Pro</span></h1>
+      <p>Gestión de Inventario</p>
+    </div>
+    <nav>
+      <p class="nav-label">Principal</p>
+      <a id="nav-dashboard"       class="nav-item" href="panel_dashboard.html"><span class="ico">🏠</span> Dashboard</a>
+      <p class="nav-label">Inventario</p>
+      <a id="nav-inventario"      class="nav-item" href="panel_inventario.html"><span class="ico">📦</span> Productos</a>
+      <a id="nav-nuevo-producto"  class="nav-item" href="panel_nuevo-producto.html"><span class="ico">➕</span> Nuevo Producto</a>
+      <a class="nav-item"><span class="ico">🏷️</span> Categorías</a>
+      <a class="nav-item"><span class="ico">🏭</span> Proveedores</a>
+      <p class="nav-label">Ventas</p>
+      <a id="nav-ventas"          class="nav-item" href="panel_ventas.html"><span class="ico">🛒</span> Registro de Ventas</a>
+      <a id="nav-nueva-venta"     class="nav-item" href="panel_nueva-venta.html"><span class="ico">💳</span> Nueva Venta</a>
+      <a class="nav-item"><span class="ico">👥</span> Clientes</a>
+      <p class="nav-label">Análisis</p>
+      <a id="nav-reportes"        class="nav-item" href="panel_reportes.html"><span class="ico">📊</span> Reportes</a>
+      <a class="nav-item"><span class="ico">📈</span> Estadísticas</a>
+      <p class="nav-label">Sistema</p>
+      <a id="nav-configuracion"   class="nav-item" href="panel_configuracion.html"><span class="ico">⚙️</span> Configuración</a>
+    </nav>
+    <div class="sidebar-perfil">
+      <div class="avatar">A</div>
+      <div class="perfil-info">
+        <p>Admin General</p>
+        <span>admin@stockpro.com</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header>
+      <div class="h-left">
+        <h2>Reportes</h2>
+        <span>Análisis › Reportes</span>
+      </div>
+      <div class="h-right">
+        <button class="btn-ico">🔔</button>
+        <button class="btn-ico">❓</button>
+        <button class="btn btn-s">📥 Exportar PDF</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="search-bar" style="margin-bottom:20px">
+        <select>
+          <option>Hoy</option>
+          <option selected>Últimos 30 días</option>
+          <option>Últimos 3 meses</option>
+          <option>Este año</option>
+        </select>
+        <input type="date">
+        <input type="date">
+        <button class="btn btn-p">📊 Generar Reporte</button>
+        <button class="btn btn-s">📥 Exportar PDF</button>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi"><b>$124,320</b><label>Ingresos Totales</label><small>▲ 8.4% vs período ant.</small></div>
+        <div class="kpi"><b>467</b><label>Ventas Totales</label><small>▲ 12 más que antes</small></div>
+        <div class="kpi"><b>$266</b><label>Ticket Promedio</label><small>▲ 3.1% de mejora</small></div>
+        <div class="kpi"><b>42%</b><label>Margen Promedio</label><small style="color:var(--gm)">Sin cambios</small></div>
+        <div class="kpi"><b>$37,280</b><label>Costo Inventario</label><small style="color:var(--gm)">Valuación actual</small></div>
+      </div>
+
+      <div class="g2" style="margin-bottom:20px">
+        <div class="card">
+          <div class="card-title">Ingresos por Semana</div>
+          <div class="graf" style="height:170px"><span>📉</span> Gráfico de línea (Chart.js)</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Ventas por Categoría</div>
+          <div class="graf" style="height:170px"><span>🍰</span> Gráfico de pastel (Chart.js)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Productos Más Rentables</div>
+        <div class="t-wrap">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Producto</th><th>Unidades</th><th>Ingresos</th><th>Costo</th><th>Ganancia</th><th>Margen</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td><td><strong>Audífonos Bluetooth Pro</strong></td>
+                <td>324</td><td>$29,157</td><td>$16,200</td>
+                <td style="color:var(--rojo);font-weight:700">$12,957</td>
+                <td><span class="badge b-green">44.4%</span></td>
+              </tr>
+              <tr>
+                <td>2</td><td><strong>Teclado Mecánico RGB</strong></td>
+                <td>215</td><td>$32,035</td><td>$17,630</td>
+                <td style="color:var(--rojo);font-weight:700">$14,405</td>
+                <td><span class="badge b-green">44.9%</span></td>
+              </tr>
+              <tr>
+                <td>3</td><td><strong>Mouse Inalámbrico Ergonómico</strong></td>
+                <td>180</td><td>$8,100</td><td>$3,960</td>
+                <td style="color:var(--rojo);font-weight:700">$4,140</td>
+                <td><span class="badge b-green">51.1%</span></td>
+              </tr>
+              <tr>
+                <td>4</td><td><strong>Hub USB 4 Puertos</strong></td>
+                <td>142</td><td>$3,549</td><td>$1,704</td>
+                <td style="color:var(--rojo);font-weight:700">$1,845</td>
+                <td><span class="badge b-orange">52.0%</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span>StockPro v1.0.0 – Gestión de Inventario y Ventas</span>
+      <span>© 2026 · Todos los derechos reservados</span>
+    </footer>
+  </div>
+
+</div>
+<script src="js/sidebar.js"></script>
+</body>
+</html>

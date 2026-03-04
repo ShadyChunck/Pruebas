@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva Venta – StockPro</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nueva-venta.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h1>Stock<span>Pro</span></h1>
+      <p>Gestión de Inventario</p>
+    </div>
+    <nav>
+      <p class="nav-label">Principal</p>
+      <a id="nav-dashboard"       class="nav-item" href="panel_dashboard.html"><span class="ico">🏠</span> Dashboard</a>
+      <p class="nav-label">Inventario</p>
+      <a id="nav-inventario"      class="nav-item" href="panel_inventario.html"><span class="ico">📦</span> Productos</a>
+      <a id="nav-nuevo-producto"  class="nav-item" href="panel_nuevo-producto.html"><span class="ico">➕</span> Nuevo Producto</a>
+      <a class="nav-item"><span class="ico">🏷️</span> Categorías</a>
+      <a class="nav-item"><span class="ico">🏭</span> Proveedores</a>
+      <p class="nav-label">Ventas</p>
+      <a id="nav-ventas"          class="nav-item" href="panel_ventas.html"><span class="ico">🛒</span> Registro de Ventas</a>
+      <a id="nav-nueva-venta"     class="nav-item" href="panel_nueva-venta.html"><span class="ico">💳</span> Nueva Venta</a>
+      <a class="nav-item"><span class="ico">👥</span> Clientes</a>
+      <p class="nav-label">Análisis</p>
+      <a id="nav-reportes"        class="nav-item" href="panel_reportes.html"><span class="ico">📊</span> Reportes</a>
+      <a class="nav-item"><span class="ico">📈</span> Estadísticas</a>
+      <p class="nav-label">Sistema</p>
+      <a id="nav-configuracion"   class="nav-item" href="panel_configuracion.html"><span class="ico">⚙️</span> Configuración</a>
+    </nav>
+    <div class="sidebar-perfil">
+      <div class="avatar">A</div>
+      <div class="perfil-info">
+        <p>Admin General</p>
+        <span>admin@stockpro.com</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header>
+      <div class="h-left">
+        <h2>Nueva Venta (POS)</h2>
+        <span>Ventas › Nueva Venta</span>
+      </div>
+      <div class="h-right">
+        <button class="btn-ico">🔔</button>
+        <button class="btn-ico">❓</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="pos">
+
+        <!-- Catálogo -->
+        <div>
+          <div class="search-bar" style="margin-bottom:14px">
+            <input type="search" placeholder="🔍 Buscar por nombre o SKU...">
+            <select>
+              <option>Todas las categorías</option>
+              <option>Audio</option><option>Electrónica</option>
+              <option>Periféricos</option><option>Accesorios</option>
+            </select>
+          </div>
+          <div class="card" style="padding:14px">
+            <div class="card-title" style="margin-bottom:12px">Catálogo <small>Clic para agregar al carrito</small></div>
+            <div class="prod-grid">
+              <div class="prod-card" onclick="agregar('AUD-001','Audífonos Bluetooth Pro','🎧',89.99)">
+                <span class="emo">🎧</span><h4>Audífonos Bluetooth Pro</h4><b>$89.99</b><small>Stock: 42</small>
+              </div>
+              <div class="prod-card" onclick="agregar('CAB-014','Cable USB-C 2m','🔌',12.50)">
+                <span class="emo">🔌</span><h4>Cable USB-C 2m</h4><b>$12.50</b><small>Stock: 4</small>
+              </div>
+              <div class="prod-card" onclick="agregar('TEC-007','Teclado Mecánico RGB','⌨️',149.00)">
+                <span class="emo">⌨️</span><h4>Teclado Mecánico RGB</h4><b>$149.00</b><small>Stock: 78</small>
+              </div>
+              <div class="prod-card" onclick="agregar('MOU-003','Mouse Inalámbrico','🖱️',45.00)">
+                <span class="emo">🖱️</span><h4>Mouse Inalámbrico</h4><b>$45.00</b><small>Stock: 63</small>
+              </div>
+              <div class="prod-card" onclick="agregar('HUB-011','Hub USB 4 Puertos','🔋',24.99)">
+                <span class="emo">🔋</span><h4>Hub USB 4 Puertos</h4><b>$24.99</b><small>Stock: 115</small>
+              </div>
+              <div class="prod-card" style="opacity:.5;cursor:not-allowed">
+                <span class="emo">🖥️</span><h4>Monitor 27" 144Hz</h4><b>$399.00</b><small style="color:var(--rojo)">Sin stock</small>
+              </div>
+              <div class="prod-card" onclick="agregar('GAM-001','Control Gamepad','🎮',35.00)">
+                <span class="emo">🎮</span><h4>Control Gamepad</h4><b>$35.00</b><small>Stock: 29</small>
+              </div>
+              <div class="prod-card" onclick="agregar('LAM-001','Lámpara LED','💡',28.00)">
+                <span class="emo">💡</span><h4>Lámpara LED</h4><b>$28.00</b><small>Stock: 51</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrito -->
+        <div class="cart">
+          <div class="cart-head">🛒 Ticket de Venta <small># Auto</small></div>
+          <div class="cart-client">
+            <div class="fg" style="margin-bottom:0">
+              <label>Cliente (opcional)</label>
+              <input type="text" placeholder="Nombre o buscar cliente...">
+            </div>
+          </div>
+          <div class="cart-items" id="cart-items"></div>
+          <div class="cart-summary">
+            <div class="sum-row"><span>Subtotal</span><span id="lbl-sub">$0.00</span></div>
+            <div class="sum-row"><span>Descuento</span><span>— $0.00</span></div>
+            <div class="sum-row"><span>IVA (16%)</span><span id="lbl-iva">$0.00</span></div>
+            <div class="sum-total"><span>TOTAL</span><span id="lbl-total">$0.00</span></div>
+            <div class="fg" style="margin-bottom:12px">
+              <label>Método de pago</label>
+              <select>
+                <option>💵 Efectivo</option>
+                <option>💳 Tarjeta de Crédito</option>
+                <option>💳 Tarjeta de Débito</option>
+                <option>📱 Transferencia / QR</option>
+              </select>
+            </div>
+            <button id="btn-cobrar" class="btn btn-p" style="width:100%;justify-content:center;padding:12px;font-size:14.5px;margin-bottom:7px">✅ Cobrar $0.00</button>
+            <button id="btn-limpiar" class="btn btn-s" style="width:100%;justify-content:center">🗑️ Limpiar carrito</button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <span>StockPro v1.0.0 – Gestión de Inventario y Ventas</span>
+      <span>© 2026 · Todos los derechos reservados</span>
+    </footer>
+  </div>
+
+</div>
+<script src="js/sidebar.js"></script>
+<script src="js/nueva-venta.js"></script>
+</body>
+</html>

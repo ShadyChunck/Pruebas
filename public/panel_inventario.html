@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos – StockPro</title>
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h1>Stock<span>Pro</span></h1>
+      <p>Gestión de Inventario</p>
+    </div>
+    <nav>
+      <p class="nav-label">Principal</p>
+      <a id="nav-dashboard"       class="nav-item" href="panel_dashboard.html"><span class="ico">🏠</span> Dashboard</a>
+      <p class="nav-label">Inventario</p>
+      <a id="nav-inventario"      class="nav-item" href="panel_inventario.html"><span class="ico">📦</span> Productos</a>
+      <a id="nav-nuevo-producto"  class="nav-item" href="panel_nuevo-producto.html"><span class="ico">➕</span> Nuevo Producto</a>
+      <a class="nav-item"><span class="ico">🏷️</span> Categorías</a>
+      <a class="nav-item"><span class="ico">🏭</span> Proveedores</a>
+      <p class="nav-label">Ventas</p>
+      <a id="nav-ventas"          class="nav-item" href="panel_ventas.html"><span class="ico">🛒</span> Registro de Ventas</a>
+      <a id="nav-nueva-venta"     class="nav-item" href="panel_nueva-venta.html"><span class="ico">💳</span> Nueva Venta</a>
+      <a class="nav-item"><span class="ico">👥</span> Clientes</a>
+      <p class="nav-label">Análisis</p>
+      <a id="nav-reportes"        class="nav-item" href="panel_reportes.html"><span class="ico">📊</span> Reportes</a>
+      <a class="nav-item"><span class="ico">📈</span> Estadísticas</a>
+      <p class="nav-label">Sistema</p>
+      <a id="nav-configuracion"   class="nav-item" href="panel_configuracion.html"><span class="ico">⚙️</span> Configuración</a>
+    </nav>
+    <div class="sidebar-perfil">
+      <div class="avatar">A</div>
+      <div class="perfil-info">
+        <p>Admin General</p>
+        <span>admin@stockpro.com</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header>
+      <div class="h-left">
+        <h2>Productos</h2>
+        <span>Inventario › Productos</span>
+      </div>
+      <div class="h-right">
+        <button class="btn-ico">🔔</button>
+        <button class="btn-ico">❓</button>
+        <a href="panel_nuevo-producto.html" class="btn btn-p">+ Agregar Producto</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="search-bar">
+        <input type="search" placeholder="🔍 Buscar por nombre, SKU o categoría...">
+        <select>
+          <option>Todas las categorías</option>
+          <option>Electrónica</option>
+          <option>Accesorios</option>
+          <option>Periféricos</option>
+          <option>Audio</option>
+        </select>
+        <select>
+          <option>Todo el stock</option>
+          <option>En stock</option>
+          <option>Stock bajo</option>
+          <option>Sin stock</option>
+        </select>
+        <a href="panel_nuevo-producto.html" class="btn btn-p">+ Agregar Producto</a>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Productos registrados <small>1,284 en total</small></div>
+        <div class="t-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>SKU</th><th>Producto</th><th>Categoría</th>
+                <th>Precio</th><th>Stock</th><th>Mín.</th><th>Estado</th><th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>AUD-001</code></td>
+                <td><strong>Audífonos Bluetooth Pro</strong><br><small style="color:var(--gm)">SoundMax</small></td>
+                <td>Audio</td><td><strong>$89.99</strong></td>
+                <td>42 uds.</td><td>10 uds.</td>
+                <td><span class="badge b-green">En Stock</span></td>
+                <td style="display:flex;gap:5px">
+                  <button class="btn btn-s" style="padding:4px 9px;font-size:12px">✏️ Editar</button>
+                  <button class="btn btn-d" style="padding:4px 9px;font-size:12px">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><code>CAB-014</code></td>
+                <td><strong>Cable USB-C 2m Trenzado</strong><br><small style="color:var(--gm)">TechLine</small></td>
+                <td>Accesorios</td><td><strong>$12.50</strong></td>
+                <td style="color:var(--rojo);font-weight:700">4 uds.</td><td>15 uds.</td>
+                <td><span class="badge b-orange">Stock Bajo</span></td>
+                <td style="display:flex;gap:5px">
+                  <button class="btn btn-s" style="padding:4px 9px;font-size:12px">✏️ Editar</button>
+                  <button class="btn btn-d" style="padding:4px 9px;font-size:12px">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><code>TEC-007</code></td>
+                <td><strong>Teclado Mecánico RGB</strong><br><small style="color:var(--gm)">KeyCraft</small></td>
+                <td>Periféricos</td><td><strong>$149.00</strong></td>
+                <td>78 uds.</td><td>5 uds.</td>
+                <td><span class="badge b-green">En Stock</span></td>
+                <td style="display:flex;gap:5px">
+                  <button class="btn btn-s" style="padding:4px 9px;font-size:12px">✏️ Editar</button>
+                  <button class="btn btn-d" style="padding:4px 9px;font-size:12px">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><code>MON-022</code></td>
+                <td><strong>Monitor 27" 144Hz</strong><br><small style="color:var(--gm)">ViewMax</small></td>
+                <td>Electrónica</td><td><strong>$399.00</strong></td>
+                <td style="color:var(--rojo);font-weight:700">0 uds.</td><td>3 uds.</td>
+                <td><span class="badge b-red">Sin Stock</span></td>
+                <td style="display:flex;gap:5px">
+                  <button class="btn btn-s" style="padding:4px 9px;font-size:12px">✏️ Editar</button>
+                  <button class="btn btn-d" style="padding:4px 9px;font-size:12px">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><code>MOU-003</code></td>
+                <td><strong>Mouse Inalámbrico Ergonómico</strong><br><small style="color:var(--gm)">ErgoTech</small></td>
+                <td>Periféricos</td><td><strong>$45.00</strong></td>
+                <td>63 uds.</td><td>8 uds.</td>
+                <td><span class="badge b-green">En Stock</span></td>
+                <td style="display:flex;gap:5px">
+                  <button class="btn btn-s" style="padding:4px 9px;font-size:12px">✏️ Editar</button>
+                  <button class="btn btn-d" style="padding:4px 9px;font-size:12px">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><code>HUB-011</code></td>
+                <td><strong>Hub USB-A 4 Puertos 3.0</strong><br><small style="color:var(--gm)">ConnectPro</small></td>
+                <td>Accesorios</td><td><strong>$24.99</strong></td>
+                <td>115 uds.</td><td>20 uds.</td>
+                <td><span class="badge b-green">En Stock</span></td>
+                <td style="display:flex;gap:5px">
+                  <button class="btn btn-s" style="padding:4px 9px;font-size:12px">✏️ Editar</button>
+                  <button class="btn btn-d" style="padding:4px 9px;font-size:12px">🗑️</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;font-size:12.5px;color:var(--gm)">
+          <span>Mostrando 1–6 de 1,284 productos</span>
+          <div style="display:flex;gap:5px">
+            <button class="btn btn-s" style="padding:5px 11px">← Anterior</button>
+            <button class="btn btn-p" style="padding:5px 11px">1</button>
+            <button class="btn btn-s" style="padding:5px 11px">2</button>
+            <button class="btn btn-s" style="padding:5px 11px">3</button>
+            <button class="btn btn-s" style="padding:5px 11px">Siguiente →</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span>StockPro v1.0.0 – Gestión de Inventario y Ventas</span>
+      <span>© 2026 · Todos los derechos reservados</span>
+    </footer>
+  </div>
+
+</div>
+<script src="js/sidebar.js"></script>
+</body>
+</html>

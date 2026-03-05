@@ -20,9 +20,14 @@ body {
     color: var(--negro);
     min-height: 100vh;
 }
-topbar{
 
+#barra_hessman {
+    background-color: #0b0b0b;
+    color: white;
+    padding: 10px;
+    text-align: center;
 }
+
 form button {
     background-color: #9B0015;
     color: white;

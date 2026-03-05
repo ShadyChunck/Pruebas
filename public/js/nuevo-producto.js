@@ -1,6 +1,3 @@
-import { auth } from "./firebase.js";
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
 // nuevo-producto.js
 const costo  = document.getElementById('costo');
 const venta  = document.getElementById('venta');
@@ -28,14 +25,3 @@ document.getElementById('btn-guardar').addEventListener('click', () => {
 });
 
 
-// Autenticación
-document.getElementById("cerrar_sesion").addEventListener("click", async () => {
-    await signOut(auth);
-});
-
-onAuthStateChanged(auth, async (usuario) => {
-    if (!usuario) 
-    {
-        window.location.href = "login.html";
-    }
-});

@@ -64,24 +64,22 @@ body{
 .form-group{
     margin-bottom:18px;
 }
-
-.password-wrapper{
-    position: relative;
+/*ojito*/
+.password-wrapper input {
+  height: 44px; /* altura consistente */
+  padding-right: 44px; /* espacio para el ojito */
 }
 
-.password-wrapper input{
-    width: 100%;
-    padding-right: 40px;
-}
-
-.toggle-password{
+.toggle-password {
     position: absolute;
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #777;
+    font-size: 18px; /* tamaño más visible */
+    color: #334155; /* contraste mejorado */
 }
+
 
 /* Inputs */
 .input-wrapper input{

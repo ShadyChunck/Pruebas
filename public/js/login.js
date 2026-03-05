@@ -17,13 +17,14 @@ document.addEventListener("submit", async (e) => {
 });
 
 const togglePassword = document.querySelector("#togglePassword");
-const password = document.querySelector("#contrasena");
+const passwordInput = document.querySelector("#contrasena");
 
 togglePassword.addEventListener("click", () => {
+  // Cambiar tipo de input
+    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
 
-    const type = password.type === "password" ? "text" : "password";
-    password.type = type;
-
+  // Cambiar ícono
     togglePassword.classList.toggle("fa-eye");
     togglePassword.classList.toggle("fa-eye-slash");
 });

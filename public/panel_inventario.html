@@ -11,26 +11,23 @@
 
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <h1>Stock<span>Pro</span></h1>
+      <h1>Autopartes</h1>
+      <h1><span>Hessman</span></h1>
       <p>Gestión de Inventario</p>
     </div>
     <nav>
       <p class="nav-label">Principal</p>
-      <a id="nav-dashboard"       class="nav-item" href="panel_dashboard.html"><span class="ico">🏠</span> Dashboard</a>
+      <a id="nav-dashboard" class="nav-item" href="panel_dashboard.html">Dashboard</a>
       <p class="nav-label">Inventario</p>
-      <a id="nav-inventario"      class="nav-item" href="panel_inventario.html"><span class="ico">📦</span> Productos</a>
-      <a id="nav-nuevo-producto"  class="nav-item" href="panel_nuevo-producto.html"><span class="ico">➕</span> Nuevo Producto</a>
-      <a class="nav-item"><span class="ico">🏷️</span> Categorías</a>
-      <a class="nav-item"><span class="ico">🏭</span> Proveedores</a>
+      <a id="nav-inventario" class="nav-item" href="panel_inventario.html">Productos</a>
+      <a id="nav-nuevo-producto" class="nav-item" href="panel_nuevo-producto.html">Nuevo Producto</a>
       <p class="nav-label">Ventas</p>
-      <a id="nav-ventas"          class="nav-item" href="panel_ventas.html"><span class="ico">🛒</span> Registro de Ventas</a>
-      <a id="nav-nueva-venta"     class="nav-item" href="panel_nueva-venta.html"><span class="ico">💳</span> Nueva Venta</a>
-      <a class="nav-item"><span class="ico">👥</span> Clientes</a>
-      <p class="nav-label">Análisis</p>
-      <a id="nav-reportes"        class="nav-item" href="panel_reportes.html"><span class="ico">📊</span> Reportes</a>
-      <a class="nav-item"><span class="ico">📈</span> Estadísticas</a>
+      <a id="nav-ventas" class="nav-item" href="panel_ventas.html">Registro de Ventas</a>
+      <a id="nav-nueva-venta" class="nav-item" href="panel_nueva-venta.html">Nueva Venta</a>
+      <!-- <p class="nav-label">Análisis</p>
+      <a id="nav-reportes" class="nav-item" href="panel_reportes.html">Reportes</a>
       <p class="nav-label">Sistema</p>
-      <a id="nav-configuracion"   class="nav-item" href="panel_configuracion.html"><span class="ico">⚙️</span> Configuración</a>
+      <a id="nav-configuracion" class="nav-item" href="panel_configuracion.html">Configuración</a> -->
     </nav>
     <div class="sidebar-perfil">
       <div class="avatar">A</div>
@@ -51,6 +48,7 @@
         <button class="btn-ico">🔔</button>
         <button class="btn-ico">❓</button>
         <a href="panel_nuevo-producto.html" class="btn btn-p">+ Agregar Producto</a>
+        <button class="btn" id="cerrar_sesion">Cerrar Sesión</button>
       </div>
     </header>
 
@@ -174,5 +172,6 @@
 
 </div>
 <script src="js/sidebar.js"></script>
+<script type="module" src="js/productos.js"></script>
 </body>
 </html>

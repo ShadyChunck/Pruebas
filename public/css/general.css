@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#barra_hessman {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.form_centrado {
+    position: static;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 500px;
+    transform: none;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.form_centrado h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Tablas */
+/* #tabla_inventario {
+    
+
+    
+} */
+
+.tabla {
+    margin: 2rem auto;
+    display: table;
+    text-align: center;
+    width: 25rem;
+    height: 10rem;
+    border-collapse: collapse;
+}
+
+.tabla th {
+    border: 1px solid #ddd;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: red /* #04AA6D */;
+    color: white;
+}
+.tabla td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}

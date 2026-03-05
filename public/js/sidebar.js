@@ -11,3 +11,4 @@ const PAGE_NAV = {
 
 const page = window.location.pathname.split('/').pop();
 document.getElementById(PAGE_NAV[page])?.classList.add('activo');
+

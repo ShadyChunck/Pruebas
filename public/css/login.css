@@ -65,19 +65,22 @@ body{
     margin-bottom:18px;
 }
 /*ojito*/
+.password-wrapper {
+    position: relative;
+}
+
 .password-wrapper input {
-  height: 44px; /* altura consistente */
-  padding-right: 44px; /* espacio para el ojito */
+    width: 100%;
+    padding-right: 40px;
 }
 
 .toggle-password {
     position: absolute;
-    right: 12px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 18px; /* tamaño más visible */
-    color: #334155; /* contraste mejorado */
+    color:#64748b;
 }
 
 

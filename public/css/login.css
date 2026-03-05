@@ -107,7 +107,7 @@ body{
 /* Botón */
 .login-btn{
     width:100%;
-    background:#9B0015;
+    background:#D0021B;
     border:none;
     border-radius:8px;
     padding:12px;
@@ -120,7 +120,7 @@ body{
 }
 
 .login-btn:hover{
-    background:#b63a4a;
+    background:#9B0015;
 }
 
 /* Loader oculto */

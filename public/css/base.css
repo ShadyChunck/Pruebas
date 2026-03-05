@@ -137,8 +137,10 @@ header {
 .btn-s  { background: var(--bl); color: var(--negro); border: 1px solid var(--gb); }
 .btn-s:hover { background: var(--gf); }
 .btn-d  { background: var(--rojo-s); color: var(--rojo); border: 1px solid #f5c5c5; }
-.btn-d:hover { background: #fde0e0; }
+.btn-d:hover { background: #a1a1a1; }
 .btn-ico { padding: 8px; background: transparent; border: 1px solid var(--gb); border-radius: var(--r); color: var(--gm); font-size: 15px; cursor: pointer; }
+.btn-c { background: #d9d9d9}
+.btn-c:hover { background: #9a9a9a; }
 
 /* === Contenido === */
 main { padding: 24px 28px; flex: 1; }

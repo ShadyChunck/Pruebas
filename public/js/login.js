@@ -20,7 +20,6 @@ const togglePassword = document.querySelector("#togglePassword");
 const passwordInput = document.querySelector("#contrasena");
 
 togglePassword.addEventListener("click", () => {
-  // Cambiar tipo de input
     const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
     passwordInput.setAttribute("type", type);
 

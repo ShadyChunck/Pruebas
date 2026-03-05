@@ -16,6 +16,18 @@ document.addEventListener("submit", async (e) => {
     }
 });
 
+const togglePassword = document.querySelector("#togglePassword");
+const password = document.querySelector("#contrasena");
+
+togglePassword.addEventListener("click", () => {
+
+    const type = password.type === "password" ? "text" : "password";
+    password.type = type;
+
+    togglePassword.classList.toggle("fa-eye");
+    togglePassword.classList.toggle("fa-eye-slash");
+});
+
 onAuthStateChanged(auth, async (usuario) => {
     if (usuario) {
         window.location.href = "panel_dashboard.html";

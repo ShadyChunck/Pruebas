@@ -14,8 +14,17 @@ form {
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--gf);
+    color: var(--negro);
+    min-height: 100vh;
+}
+topbar{
+
+}
 form button {
-    background-color: #007bff;
+    background-color: #9B0015;
     color: white;
     border: none;
     padding: 0.7rem;
@@ -25,7 +34,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #0056b3;
+    background-color: #ca2037;
 }
 
 form input {

@@ -18,7 +18,7 @@
     </div>
     <nav>
       <p class="nav-label">Principal</p>
-      <a id="nav-dashboard" class="nav-item" href="panel_dashboard.html">Dashboard</a>
+      <a id="nav-dashboard" class="nav-item" href="index.html">Dashboard</a>
       <p class="nav-label">Inventario</p>
       <a id="nav-inventario" class="nav-item" href="panel_inventario.html">Productos</a>
       <a id="nav-nuevo-producto" class="nav-item" href="panel_nuevo_producto.html">Nuevo Producto</a>
@@ -56,6 +56,9 @@
       <div class="g2" style="align-items:start">
 
         <!-- Columna izquierda -->
+        <!-- Eliminar SKU,  codigo de barras, proovedor-->
+        <!-- Precios: Impuesto -->
+        <!-- Ubicacion, unidad de medida -->
         <div style="display:flex;flex-direction:column;gap:18px">
           <div class="card">
             <div class="card-title">Información del Producto</div>
@@ -63,7 +66,7 @@
               <label>Nombre *</label>
               <input id="nombre" type="text" placeholder="Ej. Audífonos Bluetooth Pro">
             </div>
-            <div class="g2">
+            <!-- <div class="g2">
               <div class="fg">
                 <label>SKU *</label>
                 <input id="sku" type="text" placeholder="Ej. AUD-001">
@@ -72,7 +75,7 @@
                 <label>Código de Barras</label>
                 <input type="text" placeholder="Ej. 7503000123456">
               </div>
-            </div>
+            </div> -->
             <div class="fg">
               <label>Descripción</label>
               <textarea placeholder="Características, usos, especificaciones..."></textarea>
@@ -86,7 +89,7 @@
                   <option>Periféricos</option><option>Accesorios</option>
                 </select>
               </div>
-              <div class="fg">
+              <!-- <div class="fg">
                 <label>Proveedor</label>
                 <select>
                   <option value="">– Selecciona –</option>
@@ -94,7 +97,7 @@
                   <option>TechLine Corp.</option>
                   <option>KeyCraft Inc.</option>
                 </select>
-              </div>
+              </div> -->
             </div>
             <div class="fg">
               <label>Marca</label>
@@ -128,14 +131,14 @@
               <label>Margen de Ganancia</label>
               <input id="margen" type="text" placeholder="Se calcula automáticamente" readonly>
             </div>
-            <div class="fg">
+            <!-- <div class="fg">
               <label>Impuesto</label>
               <select>
                 <option>Sin impuesto</option>
                 <option>IVA 16%</option>
                 <option>IVA 19%</option>
               </select>
-            </div>
+            </div> -->
           </div>
 
           <div class="card">
@@ -154,7 +157,7 @@
                 <input type="number" placeholder="500" min="0">
               </div>
             </div>
-            <div class="fg">
+            <!-- <div class="fg">
               <label>Ubicación en Almacén</label>
               <input type="text" placeholder="Ej. Pasillo B, Estante 3">
             </div>
@@ -166,7 +169,7 @@
                 <option>Litro (L)</option>
                 <option>Caja</option>
               </select>
-            </div>
+            </div> -->
           </div>
 
           <div class="form-actions">

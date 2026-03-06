@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agregar Empleado</title>
 </head>
 <body>
         <h1>Agregar Empleado/Usuario</h1>
@@ -25,7 +25,7 @@
     <script type="module">
         import { auth, db } from "./js/firebase.js";
         import { onAuthStateChanged, createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-        import { addDoc, getDocs, collection, query, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
         document.getElementById("agregar_empleado_form").addEventListener("submit", async (e) => {
             e.preventDefault();

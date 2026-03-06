@@ -1,23 +1,15 @@
-import { auth, db } from "./firebase.js";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getDocs, collection, query, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { auth } from "./firebase.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-document.addEventListener("submit", async (e) => {
+const form = document.getElementById("inicio_sesion");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("contrasena");
+
+const emailError = document.getElementById("emailError");
+const passwordError = document.getElementById("contrasenaError");
+
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("contrasena").value;
-
-    const credenciales = await signInWithEmailAndPassword(auth, email, password);
-
-    const emailError = document.getElementById("emailError");
-    const passwordError = document.getElementById("contrasenaError");
-
-    if (credenciales) {
-        const usuario = credenciales.user;
-        console.log("Correo:", usuario.email);
-    }
-});
 
 const togglePassword = document.querySelector("#togglePassword");
 const passwordInput = document.querySelector("#contrasena");
@@ -30,9 +22,6 @@ togglePassword.addEventListener("click", () => {
     togglePassword.classList.toggle("fa-eye");
     togglePassword.classList.toggle("fa-eye-slash");
 });
-
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
 
     // limpiar errores
     emailError.textContent = "";

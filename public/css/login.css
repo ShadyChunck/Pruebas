@@ -42,12 +42,23 @@ body{
     border:1px solid #e2e8f0;
     box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
-.error-message{
-    color: #D0021B;
-    font-size: 13px;
-    margin-top: 4px;
-    display: block;
+
+.form-group.error input{
+    border-color:#D0021B;
 }
+
+.form-group.error input:focus{
+    border-color:#D0021B;
+    box-shadow:0 0 0 2px rgba(208,2,27,0.1);
+}
+
+.error-message{
+    color:#D0021B;
+    font-size:13px;
+    margin-top:4px;
+    display:block;
+}
+
 /* Header login */
 .login-header{
     text-align:center;

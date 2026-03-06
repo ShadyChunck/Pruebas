@@ -140,8 +140,17 @@ body{
 }
 
 .forgot-password{
-    color:red;
-    font-size:20px;
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #64748b;
+    text-decoration: none;
+}
+
+.forgot-password:hover{
+    color: #D0021B;
+    text-decoration: underline;
 }
 
 /* Loader oculto */

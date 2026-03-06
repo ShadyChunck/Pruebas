@@ -307,6 +307,8 @@ select:focus { border-color: var(--rojo); }
 
 .form-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 6px; }
 
+
+
 /* SKU code cell */
 code {
   background: var(--gf);

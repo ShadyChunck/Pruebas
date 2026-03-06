@@ -139,6 +139,20 @@ body{
     background:#9B0015;
 }
 
+.forgot-password{
+    display: block;
+    text-align: right;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #64748b;
+    text-decoration: none;
+}
+
+.forgot-password:hover{
+    color: #D0021B;
+    text-decoration: underline;
+}
+
 /* Loader oculto */
 .btn-loader{
     display:none;

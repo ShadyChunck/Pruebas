@@ -31,7 +31,7 @@ form.addEventListener("submit", async (e) => {
 });
 
 
-// VER / OCULTAR CONTRASEÑA
+// ver y ocultar contrasena
 const togglePassword = document.querySelector("#togglePassword");
 
 togglePassword.addEventListener("click", () => {

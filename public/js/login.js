@@ -30,6 +30,6 @@ togglePassword.addEventListener("click", () => {
 
 onAuthStateChanged(auth, async (usuario) => {
     if (usuario) {
-        window.location.href = "panel_dashboard.html";
+        window.location.href = "index.html";
     }
 });

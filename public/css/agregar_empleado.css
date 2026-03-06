@@ -1,3 +1,22 @@
-.name{
-    
+
+
+.btn-agregar {
+    width: 100%;
+    background: #D0021B;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 10px;
+}
+.btn-agregar:hover {
+    background: #9B0015;
+}
+.info-texto {
+    color: #D0021B;
+    text-decoration: underline;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,57 @@
     <link rel="stylesheet" href="css/agregar_empleado.css">
     <title>Agregar Empleado</title>
 </head>
+
 <body>
-        <h1>Agregar Empleado/Usuario</h1>
-        <div class  >
-        <form id="agregar_empleado_form">
-            <input type="text" id="name" placeholder="Nombre" required>
-            <input type="email" id="email" placeholder="Correo electrónico" required>
-            <input type="password" id="password" placeholder="Contraseña" required>
-            <select name="tipo" id="tipo" required>
-                <option value="" selected>Tipo de Cuenta</option>
-                <option value="Empleado">Empleado</option>
-                <option value="Administrador">Administrador</option>
-            </select>
-            <button type="submit">Agregar Usuario</button>
-        </form>
-        <br>
-        <p>Esta página está hecha para agregar empleados de manera rápida y no hacerlo manualmente cada vez.</p>
-        <p>Por el momento, tendremos esto como prueba nadamás, o no se como lo vean ustedes</p>
+
+    <div class="container">
+
+        <h1 class="titulo">Agregar Empleado / Usuario</h1>
+
+        <div class="form-container">
+
+            <form id="agregar_empleado_form" class="form-empleado">
+
+                <div class="form-group">
+                    <input class="input-field" type="text" id="name" placeholder="Nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <input class="input-field" type="email" id="email" placeholder="Correo electrónico" required>
+                </div>
+
+                <div class="form-group">
+                    <input class="input-field" type="password" id="password" placeholder="Contraseña" required>
+                </div>
+
+                <div class="form-group">
+                    <select class="select-field" name="tipo" id="tipo" required>
+                        <option value="" selected>Tipo de Cuenta</option>
+                        <option value="Empleado">Empleado</option>
+                        <option value="Administrador">Administrador</option>
+                    </select>
+                </div>
+
+                <button class="btn-agregar" type="submit">
+                    Agregar Usuario
+                </button>
+
+            </form>
+
+            <div class="info-texto">
+                <p>
+                    Esta página está hecha para agregar empleados de manera rápida y no hacerlo manualmente cada vez.
+                </p>
+                <p>
+                    Por el momento, tendremos esto como prueba nada más.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="js/agregar_empleado.js"></script>
 
 </body>
 </html>

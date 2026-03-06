@@ -9,7 +9,7 @@ onAuthStateChanged(auth, async (usuario) => {
     if (!usuario)
     {
         if (pagina === "panel_configuracion.html") return window.location.href = "login.html";
-        if (pagina === "panel_dashboard.html") return window.location.href = "login.html";
+        if (pagina === "index.html") return window.location.href = "login.html";
         if (pagina === "panel_inventario.html") return window.location.href = "login.html";
         if (pagina === "panel_nueva-venta.html") return window.location.href = "login.html";
         if (pagina === "panel_nuevo_producto.html") return window.location.href = "login.html";

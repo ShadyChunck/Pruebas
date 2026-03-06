@@ -13,41 +13,31 @@
         <!-- Falta la imagen/logo aquí -->
         <p>Autopartes Hessman</p>
     </header>
-    
+
     <div class="login-container">
         
         <div class="login-card">
             <div class="login-header">
-                <h2>Iniciar Sesión</h2>
-                <p>Ingrese sus credenciales para acceder a su cuenta</p>
+                <h2>Restaurar Contraseña</h2>
+                <p>Ingrese su correo electrónico para enviar un correo de reinicio de contraseña.</p>
             </div>
 
             <form id="inicio_sesion" class="login-form" novalidate>
                 <div class="form-group">
                     <div class="input-wrapper">
-                        <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
+                        <input autocomplete="on" type="email" id="email" name="email" placeholder="Correo Electrónico" required>
                         <span class="error-message" id="emailError"></span>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="input-wrapper password-wrapper">
-                        <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>     
-                        <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword"></i>
-                        <span class="error-message" id="contrasenaError"></span>
-                    </div>
-                </div>
-
                 <button type="submit" class="login-btn">
-                    <span class="btn-text">Iniciar Sesión</span>
+                    <span class="btn-text">Enviar Correo</span>
                     <span class="btn-loader"></span>
                 </button>
             </form>
-            <a href="restaurar_contraseña.html">¿Olvidaste la contraseña?</a>
         </div>
     </div>
-    <div id="prueba"></div>
-    
-    <script type="module" src="js/login.js"></script>
+
+    <script type="module" src="js/restaurar_contraseña.js"></script>
 </body>
 </html>

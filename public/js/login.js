@@ -13,6 +13,23 @@ form.addEventListener("submit", async (e) => {
     const password = passwordInput.value;
 
     passwordError.textContent = "";
+// limpiar mensajes
+    emailError.textContent = "";
+    passwordError.textContent = "";
+
+    let valido = true;
+
+    if (!email) {
+        emailError.textContent = "Este campo es obligatorio";
+        valido = false;
+    }
+
+    if (!password) {
+        passwordError.textContent = "Este campo es obligatorio";
+        valido = false;
+    }
+
+    if (!valido) return;
 
     try {
 

@@ -3,7 +3,7 @@ import { onAuthStateChanged, signInWithEmailAndPassword }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const form = document.getElementById("inicio_sesion");
-const emailInput = document.getElementById("email");
+const emailInput = document.getElemGIentById("email");
 const passwordInput = document.getElementById("contrasena");
 const passwordError = document.getElementById("contrasenaError");
 

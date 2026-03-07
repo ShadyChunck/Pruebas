@@ -1,22 +1,68 @@
+body{
+    background:#f5f6f8;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    padding:30px;
+}
 
+.container{
+    max-width:600px;
+    margin:auto;
+}
 
-.btn-agregar {
-    width: 100%;
+.titulo{
+    font-size:28px;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+/* Tarjeta del formulario */
+.form-container{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.input-field,
+.select-field{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #dcdcdc;
+    font-size:14px;
+}
+
+.input-field:focus,
+.select-field:focus{
+    outline:none;
+    border-color:#d0021b;
+}
+
+/* Botón */
+.btn-agregar{
+    width:100%;
     background: #D0021B;
-    border: none;
-    border-radius: 8px;
-    padding: 12px;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
-    margin-top: 10px;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:10px;
 }
-.btn-agregar:hover {
-    background: #9B0015;
+
+.btn-agregar:hover{
+    background:#9B0015;
 }
-.info-texto {
-    color: #D0021B;
-    text-decoration: underline;
+
+.info-texto{
+    margin-top:15px;
+    font-size:14px;
+    color:#555;
 }

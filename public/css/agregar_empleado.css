@@ -21,6 +21,10 @@ body{
     background:white;
     padding:30px;
     border-radius:10px;
+    width: 100%;
+    max-width: 600px;
+    margin: 80px auto;
+    text-align: center;
     box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 
@@ -60,6 +64,7 @@ body{
 .btn-agregar:hover{
     background:#9B0015;
 }
+
 
 .info-texto{
     margin-top:15px;

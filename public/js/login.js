@@ -34,6 +34,7 @@ form.addEventListener("submit", async (e) => {
     try {
 
         const credenciales = await signInWithEmailAndPassword(auth, email, password);
+        
 
         if (credenciales) {
             console.log("Correo:", credenciales.user.email);

@@ -1,6 +1,6 @@
-import { auth, db } from "./js/firebase.js";
-import { onAuthStateChanged, createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { auth, db } from "./firebase.js";
+import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 document.getElementById("agregar_empleado_form").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ document.getElementById("agregar_empleado_form").addEventListener("submit", asyn
             tipo: tipo
         };
 
-        await addDoc(collection(db, "usuarios"), usuario);
+        await setDoc(doc(db, "usuarios", user.uid), usuario);
 
         alert(`Registrado como: Usuario ${name}, Tipo: ${tipo}`);
     } catch (error) {

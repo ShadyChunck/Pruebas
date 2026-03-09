@@ -13,6 +13,7 @@ import { addDoc, setDoc, collection } from "https://www.gstatic.com/firebasejs/1
 document.getElementById('btn-guardar').addEventListener('click', async () => {
   const nombreProducto = document.getElementById("nombre_producto").value;
   const descripcionProducto = document.getElementById("descripcion_producto").value;
+  if (descripcionProducto.value === "" || null) return descripcionProducto = "N/A"; //Luego lo corrigo
   const categoriaProducto = document.getElementById("categoria_producto").value;
   const marcaProducto = document.getElementById("marca_producto").value;
   const imagenProducto = document.getElementById("imagen_producto"); //Imagen

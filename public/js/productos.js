@@ -14,6 +14,12 @@ function mostrarProductos() {
                 const producto = documento.data();
 
                 const trFila = document.createElement("tr");
+
+                const tdImagen = document.createElement("td");
+                tdImagen.innerHTML = `
+                    <img src="${producto.img}" style="width: 3rem; height: auto;"></img>
+                `;
+
                 const tdID = document.createElement("td");
                 tdID.textContent = documento.id;
 
@@ -57,6 +63,7 @@ function mostrarProductos() {
                 `;
                 tdBotones.style = "display:flex;gap:5px";
 
+                trFila.appendChild(tdImagen);
                 trFila.appendChild(tdID);
                 trFila.appendChild(tdProducto);
                 trFila.appendChild(tdDescripcion);

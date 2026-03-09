@@ -52,145 +52,140 @@
 
     <main>
       <div class="g2" style="align-items:start">
-
         <!-- Columna izquierda -->
-        <!-- Eliminar SKU,  codigo de barras, proovedor-->
-        <!-- Precios: Impuesto -->
-        <!-- Ubicacion, unidad de medida -->
         <div style="display:flex;flex-direction:column;gap:18px">
           <div class="card">
             <div class="card-title">Información del Producto</div>
-            <div class="fg">
-              <label>Nombre *</label>
-              <input id="nombre_producto" type="text" placeholder="Ej. Aceite para Motor">
-            </div>
-            <!-- <div class="g2">
               <div class="fg">
-                <label>SKU *</label>
-                <input id="sku" type="text" placeholder="Ej. AUD-001">
+                <label>Nombre</label>
+                <input id="nombre_producto" type="text" placeholder="Ej. Aceite para Motor">
+              </div>
+              <!-- <div class="g2">
+                <div class="fg">
+                  <label>SKU *</label>
+                  <input id="sku" type="text" placeholder="Ej. AUD-001">
+                </div>
+                <div class="fg">
+                  <label>Código de Barras</label>
+                  <input type="text" placeholder="Ej. 7503000123456">
+                </div>
+              </div> -->
+              <div class="fg">
+                <label>Descripción</label>
+                <textarea placeholder="Características, usos, especificaciones..." id="descripcion_producto"></textarea>
+              </div>
+              <div class="g2">
+                <div class="fg">
+                  <label>Categoría</label>
+                  <select id="categoria_producto">
+                    <option value="" selected>– Seleccionar –</option>
+                    <option>Aceite para motor</option>
+                    <option>Filtro de Aceite</option>
+                    <option>Anticongelante</option>
+                    <option>Grasa Lubricante</option>
+                    <option>Limpia Parabrisas</option>
+                  </select>
+                </div>
+                <!-- <div class="fg">
+                  <label>Proveedor</label>
+                  <select>
+                    <option value="">– Selecciona –</option>
+                    <option>SoundMax S.A.</option>
+                    <option>TechLine Corp.</option>
+                    <option>KeyCraft Inc.</option>
+                  </select>
+                </div> -->
+              </div>
+              <div class="g2">
+                <div class="fg">
+                  <label>Marca</label>
+                  <select id="marca_producto">
+                    <option value="" selected>– Seleccionar –</option>
+                    <option value="Gohner">Gohner</option>
+                    <option value="Bardahl">Bardahl</option>
+                    <option value="Roshfrans">Roshfrans</option>
+                    <option value="Roadstar">Roadstar</option>
+                    <option value="Pro One">Pro One</option>
+                    <option value="Mobil">Mobil</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Imagen del Producto</div>
+              <input type="file" accept="image/*" id="imagen_producto">
+              <!-- <div class="img-upload">
+                <span>🖼️</span>
+                Arrastra una imagen aquí o haz clic para seleccionar<br>
+                <small>JPG, PNG, WEBP · Máx. 5 MB</small>
+              </div> -->
+            </div>
+          </div>
+
+          <!-- Columna derecha -->
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <div class="card">
+              <div class="card-title">Precios</div>
+              <div class="fg">
+                <label>Precio de Compra</label>
+                <input id="costo" type="number" placeholder="0.00" min="0" step="0.01">
               </div>
               <div class="fg">
-                <label>Código de Barras</label>
-                <input type="text" placeholder="Ej. 7503000123456">
+                <label>Precio de Venta</label>
+                <input id="venta" type="number" placeholder="0.00" min="0" step="0.01">
               </div>
-            </div> -->
-            <div class="fg">
-              <label>Descripción</label>
-              <textarea placeholder="Características, usos, especificaciones..." id="descripcion_producto"></textarea>
-            </div>
-            <div class="g2">
               <div class="fg">
-                <label>Categoría *</label>
-                <select id="categoria_producto">
-                  <option value="" selected>– Seleccionar –</option>
-                  <option>Aceite para motor</option>
-                  <option>Filtro de Aceite</option>
-                  <option>Anticongelante</option>
-                  <option>Grasa Lubricante</option>
-                  <option>Limpia Parabrisas</option>
-                </select>
+                <label>Margen de Ganancia</label>
+                <input id="margen" type="text" placeholder="Se calcula automáticamente" readonly>
               </div>
               <!-- <div class="fg">
-                <label>Proveedor</label>
+                <label>Impuesto</label>
                 <select>
-                  <option value="">– Selecciona –</option>
-                  <option>SoundMax S.A.</option>
-                  <option>TechLine Corp.</option>
-                  <option>KeyCraft Inc.</option>
+                  <option>Sin impuesto</option>
+                  <option>IVA 16%</option>
+                  <option>IVA 19%</option>
                 </select>
               </div> -->
             </div>
-            <div class="g2">
+
+            <div class="card">
+              <div class="card-title">Control de Inventario</div>
               <div class="fg">
-                <label>Marca</label>
-                <select id="marca_producto">
-                  <option value="" selected>– Seleccionar –</option>
-                  <option value="Gohner">Gohner</option>
-                  <option value="Bardahl">Bardahl</option>
-                  <option value="Roshfrans">Roshfrans</option>
-                  <option value="Roadstar">Roadstar</option>
-                  <option value="Pro One">Pro One</option>
-                  <option value="Mobil">Mobil</option>
+                <label>Cantidad Inicial *</label>
+                <input type="number" placeholder="0" min="0" id="cantidadInicial">
+              </div>
+              <div class="g2">
+                <div class="fg">
+                  <label>Stock Mínimo</label>
+                  <input type="number" placeholder="5" min="0" id="stockMinimo">
+                </div>
+                <div class="fg">
+                  <label>Stock Máximo</label>
+                  <input type="number" placeholder="500" min="0" id="stockMaximo">
+                </div>
+              </div>
+              <!-- <div class="fg">
+                <label>Ubicación en Almacén</label>
+                <input type="text" placeholder="Ej. Pasillo B, Estante 3">
+              </div>
+              <div class="fg">
+                <label>Unidad de Medida</label>
+                <select>
+                  <option>Unidad (und.)</option>
+                  <option>Kilogramo (kg)</option>
+                  <option>Litro (L)</option>
+                  <option>Caja</option>
                 </select>
-              </div>
+              </div> -->
             </div>
-          </div>
 
-          <div class="card">
-            <div class="card-title">Imagen del Producto</div>
-            <input type="file" accept="image/*" id="imagen_producto">
-            <!-- <div class="img-upload">
-              <span>🖼️</span>
-              Arrastra una imagen aquí o haz clic para seleccionar<br>
-              <small>JPG, PNG, WEBP · Máx. 5 MB</small>
-            </div> -->
+            <div class="form-actions">
+              <button id="btn-cancelar" class="btn btn-s">Cancelar</button>
+              <!-- Necesario? -->
+              <button class="btn btn-s">Guardar borrador</button>
+              <button type="submit" id="btn-guardar" class="btn btn-p">Guardar Producto</button>
+            </div>
           </div>
-        </div>
-
-        <!-- Columna derecha -->
-        <div style="display:flex;flex-direction:column;gap:18px">
-          <div class="card">
-            <div class="card-title">Precios</div>
-            <div class="fg">
-              <label>Precio de Compra *</label>
-              <input id="costo" type="number" placeholder="0.00" min="0" step="0.01">
-            </div>
-            <div class="fg">
-              <label>Precio de Venta *</label>
-              <input id="venta" type="number" placeholder="0.00" min="0" step="0.01">
-            </div>
-            <div class="fg">
-              <label>Margen de Ganancia</label>
-              <input id="margen" type="text" placeholder="Se calcula automáticamente" readonly>
-            </div>
-            <!-- <div class="fg">
-              <label>Impuesto</label>
-              <select>
-                <option>Sin impuesto</option>
-                <option>IVA 16%</option>
-                <option>IVA 19%</option>
-              </select>
-            </div> -->
-          </div>
-
-          <div class="card">
-            <div class="card-title">Control de Inventario</div>
-            <div class="fg">
-              <label>Cantidad Inicial *</label>
-              <input type="number" placeholder="0" min="0" id="cantidadInicial">
-            </div>
-            <div class="g2">
-              <div class="fg">
-                <label>Stock Mínimo</label>
-                <input type="number" placeholder="5" min="0" id="stockMinimo">
-              </div>
-              <div class="fg">
-                <label>Stock Máximo</label>
-                <input type="number" placeholder="500" min="0" id="stockMaximo">
-              </div>
-            </div>
-            <!-- <div class="fg">
-              <label>Ubicación en Almacén</label>
-              <input type="text" placeholder="Ej. Pasillo B, Estante 3">
-            </div>
-            <div class="fg">
-              <label>Unidad de Medida</label>
-              <select>
-                <option>Unidad (und.)</option>
-                <option>Kilogramo (kg)</option>
-                <option>Litro (L)</option>
-                <option>Caja</option>
-              </select>
-            </div> -->
-          </div>
-
-          <div class="form-actions">
-            <button id="btn-cancelar" class="btn btn-s">Cancelar</button>
-            <!-- Necesario? -->
-            <button class="btn btn-s">Guardar borrador</button>
-            <button type="submit" id="btn-guardar" class="btn btn-p">Guardar Producto</button>
-          </div>
-        </div>
 
       </div>
     </main>

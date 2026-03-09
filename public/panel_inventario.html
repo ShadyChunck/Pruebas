@@ -30,10 +30,10 @@
       <a id="nav-configuracion" class="nav-item" href="panel_configuracion.html">Configuración</a> -->
     </nav>
     <div class="sidebar-perfil">
-      <div class="avatar">A</div>
+      <div class="avatar" id="perfil_avatar"></div>
       <div class="perfil-info">
-        <p>Admin General</p>
-        <span>admin@stockpro.com</span>
+        <p id="perfil_nombre"></p>
+        <span id="perfil_correo"></span>
       </div>
     </div>
   </aside>
@@ -45,16 +45,14 @@
         <span>Inventario › Productos</span>
       </div>
       <div class="h-right">
-        <button class="btn-ico">🔔</button>
-        <button class="btn-ico">❓</button>
-        <a href="panel_nuevo-producto.html" class="btn btn-p">+ Agregar Producto</a>
+        <a href="panel_nuevo_producto.html" class="btn btn-p">Agregar Producto</a>
         <button class="btn" id="cerrar_sesion">Cerrar Sesión</button>
       </div>
     </header>
 
     <main>
       <div class="search-bar">
-        <input type="search" placeholder="🔍 Buscar por nombre, SKU o categoría...">
+        <input type="search" placeholder="Buscar por nombre">
         <select>
           <option>Todas las categorías</option>
           <option>Electrónica</option>
@@ -68,21 +66,22 @@
           <option>Stock bajo</option>
           <option>Sin stock</option>
         </select>
-        <a href="panel_nuevo-producto.html" class="btn btn-p">+ Agregar Producto</a>
+        <a href="panel_nuevo_producto.html" class="btn btn-p">Agregar Producto</a>
       </div>
 
       <div class="card">
-        <div class="card-title">Productos registrados <small>1,284 en total</small></div>
+        <div class="card-title">Productos registrados <small>X en total</small></div>
         <div class="t-wrap">
-          <table>
+          <table >
+            <!-- Titulos -->
             <thead>
               <tr>
-                <th>SKU</th><th>Producto</th><th>Categoría</th>
-                <th>Precio</th><th>Stock</th><th>Mín.</th><th>Estado</th><th>Acciones</th>
+                <th>ID</th><th>Producto</th><th>Descripción</th><th>Marca</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Estado</th><th>Acciones</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <!-- Contenido en filas -->
+            <tbody id="tabla_productos">
+              <!-- <tr>
                 <td><code>AUD-001</code></td>
                 <td><strong>Audífonos Bluetooth Pro</strong><br><small style="color:var(--gm)">SoundMax</small></td>
                 <td>Audio</td><td><strong>$89.99</strong></td>
@@ -147,12 +146,13 @@
                   <button class="btn btn-s" style="padding:4px 9px;font-size:12px">✏️ Editar</button>
                   <button class="btn btn-d" style="padding:4px 9px;font-size:12px">🗑️</button>
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
+            <!-- Fin de las filas -->
           </table>
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;font-size:12.5px;color:var(--gm)">
-          <span>Mostrando 1–6 de 1,284 productos</span>
+          <span>Mostrando X–X de X productos</span>
           <div style="display:flex;gap:5px">
             <button class="btn btn-s" style="padding:5px 11px">← Anterior</button>
             <button class="btn btn-p" style="padding:5px 11px">1</button>

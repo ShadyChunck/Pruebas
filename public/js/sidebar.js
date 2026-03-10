@@ -4,7 +4,7 @@ const PAGE_NAV = {
   'panel_inventario.html'     : 'nav-inventario',
   'panel_nuevo_producto.html' : 'nav-nuevo-producto',
   'panel_ventas.html'         : 'nav-ventas',
-  'panel_nueva-venta.html'    : 'nav-nueva-venta',
+  'panel_nueva_venta.html'    : 'nav-nueva-venta',
   'panel_reportes.html'       : 'nav-reportes',
   'panel_configuracion.html'  : 'nav-configuracion',
 };

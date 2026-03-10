@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva Venta – StockPro</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nueva-venta.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h1>Autopartes</h1>
+      <h1><span>Hessman</span></h1>
+      <p>Gestión de Inventario</p>
+    </div>
+    <nav>
+      <p class="nav-label">Principal</p>
+      <a id="nav-dashboard" class="nav-item" href="index.html">Dashboard</a>
+      <p class="nav-label">Inventario</p>
+      <a id="nav-inventario" class="nav-item" href="panel_inventario.html">Productos</a>
+      <a id="nav-nuevo-producto" class="nav-item" href="panel_nuevo_producto.html">Nuevo Producto</a>
+      <p class="nav-label">Ventas</p>
+      <a id="nav-ventas" class="nav-item" href="panel_ventas.html">Registro de Ventas</a>
+      <a id="nav-nueva-venta" class="nav-item" href="panel_nueva_venta.html">Nueva Venta</a>
+      <!-- <p class="nav-label">Análisis</p>
+      <a id="nav-reportes" class="nav-item" href="panel_reportes.html">Reportes</a>
+      <p class="nav-label">Sistema</p>
+      <a id="nav-configuracion" class="nav-item" href="panel_configuracion.html">Configuración</a> -->
+    </nav>
+    <div class="sidebar-perfil">
+      <div class="avatar" id="perfil_avatar"></div>
+      <div class="perfil-info">
+        <p id="perfil_nombre"></p>
+        <span id="perfil_correo"></span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header>
+      <div class="h-left">
+        <h2>Nueva Venta (POS)</h2>
+        <span>Ventas › Nueva Venta</span>
+      </div>
+      <div class="h-right">
+        <button class="btn" id="cerrar_sesion">Cerrar Sesión</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="pos">
+
+        <!-- Catálogo -->
+          <div>
+            <div class="search-bar" style="margin-bottom:14px">
+              <input type="search" placeholder="🔍 Buscar por nombre o SKU...">
+              <select>
+                <option>Todas las categorías</option>
+                <option>Audio</option><option>Electrónica</option>
+                <option>Periféricos</option><option>Accesorios</option>
+              </select>
+            </div>
+            <div class="card" style="padding:14px">
+              <div class="card-title" style="margin-bottom:12px">Catálogo <small>Clic para agregar al carrito</small></div>
+                <div class="prod-grid" id="productos_disponibles">
+
+              </div>
+            </div>
+          </div>
+
+        <!-- Carrito -->
+        <div class="cart">
+          <div class="cart-head">Registro de Venta<small># Auto</small></div>
+          <div class="cart-client">
+            <div class="fg" style="margin-bottom:0">
+              <label>Cliente (opcional)</label>
+              <input type="text" placeholder="Nombre o buscar cliente..." id="nombre_cliente">
+            </div>
+          </div>
+          <div class="cart-items" id="prod_seleccionados"></div>
+          <div class="cart-summary">
+            <div class="sum-row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+            <!-- <div class="sum-row"><span>Descuento</span><span>— $0.00</span></div> -->
+            <div class="sum-row"><span>IVA (16%)</span><span id="iva">$0.00</span></div>
+            <div class="sum-total"><span>TOTAL</span><span id="total">$0.00</span></div>
+            <div class="fg" style="margin-bottom:12px">
+              <label>Método de pago</label>
+              <select>
+                <option>Efectivo</option>
+                <option>Tarjeta de Crédito</option>
+                <option>Tarjeta de Débito</option>
+                <option>Transferencia / QR</option>
+              </select>
+            </div>
+            <button id="btn_cobrar" class="btn btn-p" style="width:100%;justify-content:center;padding:12px;font-size:14.5px;margin-bottom:7px">Cobrar $0.00</button>
+            <button id="btn-limpiar" class="btn btn-s" style="width:100%;justify-content:center">Limpiar carrito</button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <span>StockPro v1.0.0 – Gestión de Inventario y Ventas</span>
+      <span>© 2026 · Todos los derechos reservados</span>
+    </footer>
+  </div>
+
+</div>
+<script src="js/sidebar.js"></script>
+<script type="module" src="js/nueva_venta.js"></script>
+<script type="module" src="js/auth.js"></script>
+</body>
+</html>

@@ -24,10 +24,6 @@
       <p class="nav-label">Ventas</p>
       <a id="nav-nueva-venta" class="nav-item" href="panel_nueva_venta.html">Registro de Ventas</a>
       <a id="nav-ventas" class="nav-item" href="panel_ventas.html">Historial de Ventas</a>
-      <!-- <p class="nav-label">Análisis</p>
-      <a id="nav-reportes" class="nav-item" href="panel_reportes.html">Reportes</a>
-      <p class="nav-label">Sistema</p>
-      <a id="nav-configuracion" class="nav-item" href="panel_configuracion.html">Configuración</a> -->
     </nav>
     <div class="sidebar-perfil">
       <div class="avatar" id="perfil_avatar"></div>
@@ -45,15 +41,13 @@
         <span>Ventas › Historial</span>
       </div>
       <div class="h-right">
-        <button class="btn-ico">🔔</button>
-        <button class="btn-ico">❓</button>
-        <a href="panel_nueva-venta.html" class="btn btn-p">+ Nueva Venta</a>
+        <a href="panel_nueva_venta.html" class="btn btn-p">+ Nueva Venta</a>
         <button class="btn" id="cerrar_sesion">Cerrar Sesión</button>
       </div>
     </header>
 
     <main>
-      <div class="search-bar">
+      <!-- <div class="search-bar">
         <input type="search" placeholder="🔍 Buscar por # venta, cliente o producto...">
         <input type="date">
         <input type="date">
@@ -64,15 +58,16 @@
         </select>
         <button class="btn btn-s">📥 Exportar</button>
         <a href="panel_nueva-venta.html" class="btn btn-p">+ Nueva Venta</a>
-      </div>
+      </div> -->
 
+      <!-- Fichas Grandes -->
       <div class="metrics" style="margin-bottom:20px">
-        <div class="metric r">
-          <label>Total del Período</label>
-          <strong>$32,840</strong>
-          <small>124 transacciones</small>
+        <div class="metric r" style="max-width: 11rem;">
+          <label>Ganancias Totales</label>
+          <strong id="gananciaTotal"></strong>
+          <small id="ventasTotales">124 transacciones</small>
         </div>
-        <div class="metric n">
+        <!-- <div class="metric n">
           <label>Promedio por Venta</label>
           <strong>$265</strong>
           <small class="up">▲ vs período ant.</small>
@@ -81,21 +76,22 @@
           <label>Canceladas</label>
           <strong>3</strong>
           <small class="down">▼ 2% del total</small>
-        </div>
+        </div> -->
       </div>
 
+      <!-- Tabla de ventas -->
       <div class="card">
-        <div class="card-title">Historial de Ventas <small>Últimos 30 días</small></div>
+        <div class="card-title">Historial de Ventas <!-- small>Últimos 30 días</!--></div>
         <div class="t-wrap">
           <table>
             <thead>
               <tr>
-                <th># Venta</th><th>Fecha</th><th>Cliente</th><th>Productos</th>
-                <th>Subtotal</th><th>Descuento</th><th>Total</th><th>Estado</th><th>Acciones</th>
+                <th># de Venta</th><th>Fecha</th><th>Cliente</th><th>Productos</th>
+                <th>Subtotal</th><th>Total</th><th>Estado</th><th>Acciones</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody id="tablaVentas">
+              <!-- <tr>
                 <td><strong>#1047</strong></td>
                 <td>17/02/2026<br><small style="color:var(--gm)">10:42 AM</small></td>
                 <td>María García</td><td>2 productos</td>
@@ -134,7 +130,7 @@
                 <td>$398.00</td><td>$15.00</td><td><strong>$383.00</strong></td>
                 <td><span class="badge b-gray">Reembolsada</span></td>
                 <td><button class="btn btn-s" style="padding:4px 9px;font-size:12px">Ver Detalle</button></td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>

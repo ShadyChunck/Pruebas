@@ -1,13 +1,21 @@
 import { auth, db } from "./firebase.js"
-import { doc, getDoc, addDoc, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { doc, deleteDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+function productosTotales() {
+    const totalProductos = document.getElementById("conteoProductos");
+
+    onSnapshot(collection(db, "productos"), (documentos) => {
+        totalProductos.innerText = `${documentos.size} productos en total`;
+    });
+};
+
 
 function mostrarProductos() {
     const tablaProductos = document.getElementById("tabla_productos");
-    
-    //Creación de mas td
 
     //Aqui se cuentan todos los productos
     onSnapshot(collection(db, "productos"), (documentos) => {
+        tablaProductos.innerHTML = "";
         try {
             //Por cada documento que se obtiene
             documentos.forEach((documento) => {
@@ -57,11 +65,11 @@ function mostrarProductos() {
                 }
 
                 const tdBotones = document.createElement("td");
+                tdBotones.style = "display: flex; gap:5px; align-items: center; justify-content: center;";
                 tdBotones.innerHTML = `
-                    <button class="btn btn-s" style="padding:4px 9px;font-size:12px">Editar</button>
-                    <button class="btn btn-d" style="padding:4px 9px;font-size:12px">Eliminar</button>
+                    <button class="btn btn-s" style="padding:4px 9px;font-size:12px" id="btn_editar" data-id="${documento.id}" data-accion="editar">Editar</button>
+                    <button class="btn btn-d" style="padding:4px 9px;font-size:12px" id="btn_eliminar" data-id="${documento.id}" data-nombre="${producto.nombre}" data-accion="eliminar">Eliminar</button>
                 `;
-                tdBotones.style = "display:flex;gap:5px";
 
                 trFila.appendChild(tdImagen);
                 trFila.appendChild(tdID);
@@ -75,15 +83,42 @@ function mostrarProductos() {
                 trFila.appendChild(tdBotones);
                 
                 tablaProductos.appendChild(trFila);
-                //tdProducto.textContent = () ? "Disponible" : "No Disponible";
                 console.log(`Fila Insertada: ${documento.id}`);
 
+                
 
             });
         } catch (e) {
-
+            console.log(e);
         };
     });
+
+    //Para eliminar productos
+    tablaProductos.addEventListener("click", async (e) => {
+        const btn = e.target.closest("button");
+        if (!btn) return;
+
+        // Obtener id y accion del producto
+        const id = btn.dataset.id;
+        const accion = btn.dataset.accion;
+
+        if (!id) return console.error("No hay datos en el botón.");
+
+        if (accion === "eliminar") {
+            //Luego hacerlo Popup
+            const confirmar = confirm(`¿Desea eliminar el producto "${btn.dataset.nombre}"?`);
+            if (!confirmar) return;
+            await deleteDoc(doc(db, "productos", id));
+        };
+
+        // TODO: Luego actualizaremos bien los productos
+        if (accion === "editar") {
+            window.location.href = `panel_nuevo_producto.html?id=${id}`;
+        }
+
+    });
+    productosTotales();
 };
+
 
 mostrarProductos();

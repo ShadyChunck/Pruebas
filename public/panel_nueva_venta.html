@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nueva Venta – StockPro</title>
+  <title>Registro de Venta</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/nueva-venta.css">
 </head>
@@ -23,8 +23,9 @@
       <a id="nav-inventario" class="nav-item" href="panel_inventario.html">Productos</a>
       <a id="nav-nuevo-producto" class="nav-item" href="panel_nuevo_producto.html">Nuevo Producto</a>
       <p class="nav-label">Ventas</p>
-      <a id="nav-ventas" class="nav-item" href="panel_ventas.html">Registro de Ventas</a>
-      <a id="nav-nueva-venta" class="nav-item" href="panel_nueva_venta.html">Nueva Venta</a>
+      <a id="nav-nueva-venta" class="nav-item" href="panel_nueva_venta.html">Registro de Ventas</a>
+      <a id="nav-ventas" class="nav-item" href="panel_ventas.html">Historial de Ventas</a>
+      
       <!-- <p class="nav-label">Análisis</p>
       <a id="nav-reportes" class="nav-item" href="panel_reportes.html">Reportes</a>
       <p class="nav-label">Sistema</p>
@@ -56,15 +57,15 @@
         <!-- Catálogo -->
           <div>
             <div class="search-bar" style="margin-bottom:14px">
-              <input type="search" placeholder="🔍 Buscar por nombre o SKU...">
-              <select>
+              <input type="search" placeholder="🔍 Buscar por nombre">
+              <!-- <select>
                 <option>Todas las categorías</option>
                 <option>Audio</option><option>Electrónica</option>
                 <option>Periféricos</option><option>Accesorios</option>
-              </select>
+              </select> -->
             </div>
             <div class="card" style="padding:14px">
-              <div class="card-title" style="margin-bottom:12px">Catálogo <small>Clic para agregar al carrito</small></div>
+              <div class="card-title" style="margin-bottom:12px">Catálogo<small>Clic para agregar al carrito</small></div>
                 <div class="prod-grid" id="productos_disponibles">
 
               </div>
@@ -72,12 +73,12 @@
           </div>
 
         <!-- Carrito -->
-        <div class="cart">
+        <div class="cart" id="seccion_carrito">
           <div class="cart-head">Registro de Venta<small># Auto</small></div>
           <div class="cart-client">
             <div class="fg" style="margin-bottom:0">
-              <label>Cliente (opcional)</label>
-              <input type="text" placeholder="Nombre o buscar cliente..." id="nombre_cliente">
+              <label>Nombre del Cliente</label>
+              <input type="text" placeholder="Nombre" id="nombre_cliente">
             </div>
           </div>
           <div class="cart-items" id="prod_seleccionados"></div>
@@ -86,17 +87,18 @@
             <!-- <div class="sum-row"><span>Descuento</span><span>— $0.00</span></div> -->
             <div class="sum-row"><span>IVA (16%)</span><span id="iva">$0.00</span></div>
             <div class="sum-total"><span>TOTAL</span><span id="total">$0.00</span></div>
-            <div class="fg" style="margin-bottom:12px">
-              <label>Método de pago</label>
-              <select>
-                <option>Efectivo</option>
-                <option>Tarjeta de Crédito</option>
-                <option>Tarjeta de Débito</option>
-                <option>Transferencia / QR</option>
-              </select>
+            
+
+            <div class="fg">
+              <label>Cantidad pagada</label>
+              <input type="number" name="cantidad_pagada" id="cantidad_pagada" placeholder="$">
             </div>
+            
+            <small>Recuerde al cliente que solo se acepta pago en efectivo</small>
+            <br>
+            <br>
             <button id="btn_cobrar" class="btn btn-p" style="width:100%;justify-content:center;padding:12px;font-size:14.5px;margin-bottom:7px">Cobrar $0.00</button>
-            <button id="btn-limpiar" class="btn btn-s" style="width:100%;justify-content:center">Limpiar carrito</button>
+            <button id="btn_limpiar" class="btn btn-s" style="width:100%;justify-content:center">Limpiar carrito</button>
           </div>
         </div>
 
@@ -111,7 +113,7 @@
 
 </div>
 <script src="js/sidebar.js"></script>
-<script type="module" src="js/nueva_venta.js"></script>
 <script type="module" src="js/auth.js"></script>
+<script type="module" src="js/nueva_venta.js"></script>
 </body>
 </html>

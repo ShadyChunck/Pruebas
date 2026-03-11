@@ -12,8 +12,8 @@ form.addEventListener("submit", async (e) => {
     const email = emailInput.value;
     const password = passwordInput.value;
 
+    // limpiar mensajes
     passwordError.textContent = "";
-// limpiar mensajes
     emailError.textContent = "";
     passwordError.textContent = "";
 
@@ -35,16 +35,12 @@ form.addEventListener("submit", async (e) => {
 
         const credenciales = await signInWithEmailAndPassword(auth, email, password);
         
-
         if (credenciales) {
             console.log("Correo:", credenciales.user.email);
             window.location.href = "index.html";
         }
-
     } catch (error) {
-
         passwordError.textContent = "Correo o contraseña incorrecta";
-
     }
 });
 

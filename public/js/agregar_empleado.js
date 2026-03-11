@@ -33,7 +33,7 @@ document.getElementById("agregar_empleado_form").addEventListener("submit", asyn
             uid: user.uid,
             name: name,
             email: email,
-            //Por el momento tendrá la contraseña hasta que terminemos bien con el proyecto
+            //Por el momento tendrá la contraseña en el documento hasta que terminemos bien con el proyecto
             password: password,
             tipo: tipo
         };

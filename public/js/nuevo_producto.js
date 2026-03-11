@@ -1,14 +1,6 @@
 import { db } from "./firebase.js";
-import { addDoc, setDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
-// function calcMargen() {
-//   const c = parseFloat(costo.value), v = parseFloat(venta.value);
-//   margen.value = (c > 0 && v > 0) ? ((v - c) / v * 100).toFixed(1) + '%' : '';
-// }
-
-// costo.addEventListener('input', calcMargen);
-// venta.addEventListener('input', calcMargen);
 
 document.getElementById('btn-guardar').addEventListener('click', async () => {
   const nombreProducto = document.getElementById("nombre_producto").value.trim();
@@ -17,19 +9,13 @@ document.getElementById('btn-guardar').addEventListener('click', async () => {
   const categoriaProducto = document.getElementById("categoria_producto").value;
   const marcaProducto = document.getElementById("marca_producto").value;
   const imagenProducto = document.getElementById("imagen_producto"); //Imagen
-  // Por el momento lo dejaré con estos valores
-
   const costo = Number(document.getElementById('costo').value);
   const costoNuevo = (costo <= 0) ? 0 : costo;
   const venta = Number(document.getElementById('venta').value);
   const ventaNueva = (venta <= 0) ? 0 : venta;
-  //const margen = document.getElementById('margen').value;
   const cantidadInicial = Number(document.getElementById("cantidadInicial").value);
   const cantNueva = (cantidadInicial <= 0) ? 0 : cantidadInicial;
-  //const stockminimo = document.getElementById("stockMinimo").value;
-  //const stockmaximo = document.getElementById("stockMaximo").value;
 
-  //Función para obtener la imagen en Base64
   const archivoImagen = imagenProducto.files[0];
 
   if (!archivoImagen) {

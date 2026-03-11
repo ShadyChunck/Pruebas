@@ -6,7 +6,7 @@ const form = document.getElementById("inicio_sesion");
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const emailInput = document.getElementById("email").value.trim();
+    const emailInput = document.getElementById("email").value;
     if (!emailInput) return console.log("Sin correo");
 
     try {

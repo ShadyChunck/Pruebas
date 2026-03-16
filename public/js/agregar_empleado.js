@@ -2,8 +2,11 @@ import { auth, db } from "./firebase.js";
 import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const password = passwordInput.value;
+const tipo = document.getElementById("tipo").value;
 
-// Mostrar / ocultar contraseña
 const togglePassword = document.getElementById("togglePassword");
 const passwordInput = document.getElementById("password");
 
@@ -21,11 +24,6 @@ togglePassword.addEventListener("click", () => {
 
 document.getElementById("agregar_empleado_form").addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const password = passwordInput.value;
-    const tipo = document.getElementById("tipo").value;
 
     try {
 

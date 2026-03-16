@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Empleado – StockPro</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/configuracion.css">
+    <link rel="stylesheet" href="css/agregar_empleado.css">
+
+</head>
+
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h1>Autopartes</h1>
+                <h1><span>Hessman</span></h1>
+                <p>Gestión de Inventario</p>
+            </div>
+
+            <nav>
+                <p class="nav-label">Principal</p>
+                <a id="nav-dashboard" class="nav-item" href="index.html">Dashboard</a>
+                <p class="nav-label">Inventario</p>
+                <a id="nav-inventario" class="nav-item" href="panel_inventario.html">Productos</a>
+                <a id="nav-nuevo-producto" class="nav-item" href="panel_nuevo_producto.html">Nuevo Producto</a>
+                <p class="nav-label">Ventas</p>
+                <a id="nav-nueva-venta" class="nav-item" href="panel_nueva_venta.html">Registro de Ventas</a>
+                <a id="nav-ventas" class="nav-item" href="panel_ventas.html">Historial de Ventas</a>
+                <p class="nav-label">Usuarios</p>
+                <a id="nav-agregar-empleado" class="nav-item" href="agregar_empleado.html">Agregar Empleado</a>
+            </nav>
+
+            <div class="sidebar-perfil">
+                <div class="avatar" id="perfil_avatar"></div>
+
+                <div class="perfil-info">
+                    <p id="perfil_nombre"></p>
+                    <span id="perfil_correo"></span>
+                </div>
+
+
+            </div>
+        </aside>
+
+        <div class="main-wrap">
+
+            <header>
+                <div class="h-left">
+                    <h2>Agregar Empleado</h2>
+                    <span>Usuarios › Nuevo Empleado</span>
+                </div>
+                <div class="h-right">
+                <button class="btn" id="cerrar_sesion">Cerrar Sesión</button>
+                </div>
+            </header>
+
+            <main>
+                <div class="card" style="max-width:520px;margin:auto">
+                    <div class="card-title">
+                        Nuevo empleado
+                    </div>
+                    <form id="agregar_empleado_form">
+                        <div class="fg">
+                            <label>Nombre</label>
+                            <input type="text" placeholder="Nombre del empleado" required>
+                        </div>
+                        <div class="fg">
+                            <label>Correo electrónico</label>
+                            <input type="email" placeholder="correo@empresa.com" required>
+                        </div>
+                        <div class="fg">
+                            <label>Contraseña</label>
+                            <input type="password" placeholder="Contraseña" required>
+                        </div>
+                        <div class="fg">
+                            <label>Tipo de Cuenta</label>
+                            <select required>
+                                <option value="">Seleccionar tipo</option>
+                                <option value="Empleado">Empleado</option>
+                                <option value="Administrador">Administrador</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-p">
+                                Agregar Usuario
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </main>
+
+            <footer>
+                <span>Autopartes Hessman v1.0.0 – Gestión de Inventario y Ventas</span>
+                <span>© 2026 · Todos los derechos reservados</span>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script type="module" src="js/agregar_empleado.js"></script>
+    <script type="module" src="js/auth.js"></script>
+
+</body>
+
+</html>

@@ -1,73 +1,85 @@
-body{
-    background:#f5f6f8;
-    font-family: Arial, Helvetica, sans-serif;
-    margin:0;
-    padding:30px;
+/* agregar-empleado.css */
+
+.emp-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
 }
 
-.container{
-    max-width:600px;
-    margin:auto;
-}
-
-.titulo{
-    font-size:28px;
-    margin-bottom:20px;
-    font-weight:600;
-}
-
-/* Tarjeta del formulario */
-.form-container{
-    background:white;
-    padding:30px;
-    border-radius:10px;
+/* tarjeta */
+.form-container {
+    background: var(--bl);
+    border: 1px solid var(--gb);
+    border-radius: var(--r);
+    box-shadow: var(--sombra);
     width: 100%;
-    max-width: 600px;
-    margin: 80px auto;
-    text-align: center;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    max-width: 480px;
+    padding: 22px 24px;
 }
 
-.form-group{
-    margin-bottom:15px;
+/* titulo */
+.form-container h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 16px;
 }
 
+/* grupos */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--gm);
+}
+
+/* inputs */
 .input-field,
-.select-field{
-    width:100%;
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #dcdcdc;
-    font-size:14px;
+.select-field {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--gb);
+    font-size: 12.5px;
+    background: var(--bl);
 }
 
 .input-field:focus,
-.select-field:focus{
-    outline:none;
-    border-color:#d0021b;
+.select-field:focus {
+    outline: none;
+    border-color: var(--rojo);
 }
 
-/* Botón */
-.btn-agregar{
-    width:100%;
-    background: #D0021B;
-    color:white;
-    border:none;
-    padding:14px;
-    border-radius:8px;
-    font-size:15px;
-    font-weight:600;
-    cursor:pointer;
-    margin-top:10px;
+/* botón */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
 }
 
-.btn-agregar:hover{
-    background:#9B0015;
+.btn-agregar {
+    background: var(--rojo);
+    color: white;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
+.btn-agregar:hover {
+    background: #a50014;
+}
 
-.info-texto{
-    margin-top:15px;
-    font-size:14px;
-    color:#555;
+/* responsive */
+@media (max-width: 700px) {
+    .form-container {
+        max-width: 100%;
+    }
 }

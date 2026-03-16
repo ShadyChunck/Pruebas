@@ -1,53 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro de Ventas</title>
   <link rel="stylesheet" href="css/base.css">
 </head>
+
 <body>
-<div class="app">
+  <div class="app">
 
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <h1>Autopartes</h1>
-      <h1><span>Hessman</span></h1>
-      <p>Gestión de Inventario</p>
-    </div>
-    <nav>
-      <!-- <p class="nav-label">Principal</p>
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <h1>Autopartes</h1>
+        <h1><span>Hessman</span></h1>
+        <p>Gestión de Inventario</p>
+      </div>
+      <nav>
+        <!-- <p class="nav-label">Principal</p>
       <a id="nav-dashboard" class="nav-item" href="index.html">Dashboard</a> -->
-      <p class="nav-label">Inventario</p>
-      <a id="nav-inventario" class="nav-item" href="panel_inventario.html">Productos</a>
-      <a id="nav-nuevo-producto" class="nav-item" href="panel_nuevo_producto.html">Nuevo Producto</a>
-      <p class="nav-label">Ventas</p>
-      <a id="nav-nueva-venta" class="nav-item" href="panel_nueva_venta.html">Registro de Ventas</a>
-      <a id="nav-ventas" class="nav-item" href="panel_ventas.html">Historial de Ventas</a>
-    </nav>
-    <div class="sidebar-perfil">
-      <div class="avatar" id="perfil_avatar"></div>
-      <div class="perfil-info">
-        <p id="perfil_nombre"></p>
-        <span id="perfil_correo"></span>
+        <p class="nav-label">Principal</p>
+        <a id="nav-dashboard" class="nav-item" href="index.html">Dashboard</a>
+        <p class="nav-label">Inventario</p>
+        <a id="nav-inventario" class="nav-item" href="panel_inventario.html">Productos</a>
+        <a id="nav-nuevo-producto" class="nav-item" href="panel_nuevo_producto.html">Nuevo Producto</a>
+        <p class="nav-label">Ventas</p>
+        <a id="nav-nueva-venta" class="nav-item" href="panel_nueva_venta.html">Registro de Ventas</a>
+        <a id="nav-ventas" class="nav-item" href="panel_ventas.html">Historial de Ventas</a>
+        <p class="nav-label">Usuarios</p>
+        <a id="nav-agregar-empleado" class="nav-item" href="agregar_empleado.html">Agregar Empleado</a>
+      </nav>
+      <div class="sidebar-perfil">
+        <div class="avatar" id="perfil_avatar"></div>
+        <div class="perfil-info">
+          <p id="perfil_nombre"></p>
+          <span id="perfil_correo"></span>
+        </div>
       </div>
-    </div>
-  </aside>
+    </aside>
 
-  <div class="main-wrap">
-    <header>
-      <div class="h-left">
-        <h2>Registro de Ventas</h2>
-        <span>Ventas › Historial</span>
-      </div>
-      <div class="h-right">
-        <a href="panel_nueva_venta.html" class="btn btn-p">+ Nueva Venta</a>
-        <button class="btn" id="cerrar_sesion">Cerrar Sesión</button>
-      </div>
-    </header>
+    <div class="main-wrap">
+      <header>
+        <div class="h-left">
+          <h2>Registro de Ventas</h2>
+          <span>Ventas › Historial</span>
+        </div>
+        <div class="h-right">
+          <a href="panel_nueva_venta.html" class="btn btn-p">+ Nueva Venta</a>
+          <button class="btn" id="cerrar_sesion">Cerrar Sesión</button>
+        </div>
+      </header>
 
-    <main>
-      <!-- <div class="search-bar">
+      <main>
+        <!-- <div class="search-bar">
         <input type="search" placeholder="🔍 Buscar por # venta, cliente o producto...">
         <input type="date">
         <input type="date">
@@ -60,13 +66,13 @@
         <a href="panel_nueva-venta.html" class="btn btn-p">+ Nueva Venta</a>
       </div> -->
 
-      <!-- Fichas Grandes -->
-      <!-- <div class="metrics" style="margin-bottom:20px">     Este DIV se usará luego 
+        <!-- Fichas Grandes -->
+        <!-- <div class="metrics" style="margin-bottom:20px">     Este DIV se usará luego 
         <div class="metric r" style="max-width: 11rem;">
           <label>Ganancias Totales</label>
           <strong id="gananciaTotal"></strong>
           <small id="ventasTotales">124 transacciones</small>
-        </div> -->                                                      
+        </div> -->
         <!-- <div class="metric n">
           <label>Promedio por Venta</label>
           <strong>$265</strong>
@@ -79,19 +85,25 @@
         </div> 
       </div> -->
 
-      <!-- Tabla de ventas -->
-      <div class="card">
-        <div class="card-title">Historial de Ventas <!-- small>Últimos 30 días</!--></div>
-        <div class="t-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th># de Venta</th><th>Fecha</th><th>Cliente</th><th>Productos</th>
-                <th>Subtotal</th><th>Total</th><th>Estado</th><th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="tablaVentas">
-              <!-- <tr>
+        <!-- Tabla de ventas -->
+        <div class="card">
+          <div class="card-title">Historial de Ventas <!-- small>Últimos 30 días</!--></div>
+          <div class="t-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th># de Venta</th>
+                  <th>Fecha</th>
+                  <th>Cliente</th>
+                  <th>Productos</th>
+                  <th>Subtotal</th>
+                  <th>Total</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="tablaVentas">
+                <!-- <tr>
                 <td><strong>#1047</strong></td>
                 <td>17/02/2026<br><small style="color:var(--gm)">10:42 AM</small></td>
                 <td>María García</td><td>2 productos</td>
@@ -131,21 +143,22 @@
                 <td><span class="badge b-gray">Reembolsada</span></td>
                 <td><button class="btn btn-s" style="padding:4px 9px;font-size:12px">Ver Detalle</button></td>
               </tr> -->
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
 
-    <footer>
-      <span>Autopartes Hessman v1.0.0 – Gestión de Inventario y Ventas</span>
-      <span>© 2026 · Todos los derechos reservados</span>
-    </footer>
+      <footer>
+        <span>Autopartes Hessman v1.0.0 – Gestión de Inventario y Ventas</span>
+        <span>© 2026 · Todos los derechos reservados</span>
+      </footer>
+    </div>
+
   </div>
-
-</div>
-<script src="js/sidebar.js"></script>
-<script type="module" src="js/ventas.js"></script>
-<script type="module" src="js/auth.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script type="module" src="js/ventas.js"></script>
+  <script type="module" src="js/auth.js"></script>
 </body>
+
 </html>

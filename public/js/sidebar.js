@@ -7,6 +7,7 @@ const PAGE_NAV = {
   'panel_nueva_venta.html'    : 'nav-nueva-venta',
   'panel_reportes.html'       : 'nav-reportes',
   'panel_configuracion.html'  : 'nav-configuracion',
+  'agregar_empleado.html'     : 'nav-agregar-empleado'
 };
 
 const page = window.location.pathname.split('/').pop();

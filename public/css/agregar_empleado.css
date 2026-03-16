@@ -55,6 +55,27 @@
     border-color: var(--rojo);
 }
 
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px; 
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px; 
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #64748b;
+}
+
+.fg{
+    margin-bottom:15px;
+}
 /* botón */
 .form-actions {
     display: flex;

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/configuracion.css">
     <link rel="stylesheet" href="css/agregar_empleado.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
@@ -54,7 +55,7 @@
                     <span>Usuarios › Nuevo Empleado</span>
                 </div>
                 <div class="h-right">
-                <button class="btn" id="cerrar_sesion">Cerrar Sesión</button>
+                    <button class="btn" id="cerrar_sesion">Cerrar Sesión</button>
                 </div>
             </header>
 
@@ -74,7 +75,13 @@
                         </div>
                         <div class="fg">
                             <label>Contraseña</label>
-                            <input type="password" placeholder="Contraseña" required>
+
+                            <div class="password-wrapper">
+                                <input type="password" id="password" placeholder="Contraseña" required>
+                                <i class="fa-solid fa-eye-slash toggle-password" id="togglePassword"></i>
+                            </div>
+
+                            <span class="error-message" id="contrasenaError"></span>
                         </div>
                         <div class="fg">
                             <label>Tipo de Cuenta</label>

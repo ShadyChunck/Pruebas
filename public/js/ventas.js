@@ -1,4 +1,5 @@
 import { db } from "./firebase.js";
+import { mostrarPopup } from "./popup.js";
 import { doc, getDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
@@ -71,6 +72,8 @@ function mostrarVentas() {
 
         }
     });
+
+    document.getElementById();
 
 };
 

@@ -540,6 +540,33 @@ code {
   font-size: 11.5px;
 }
 
+/* Popups */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+.popup-overlay.activo { display: flex; }
+.popup {
+    background: var(--bl);
+    border-radius: var(--r);
+    padding: 28px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+}
+.popup-titulo {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.popup-cuerpo { font-size: 13.5px; color: var(--gm); margin-bottom: 20px; }
+.popup-acciones { display: flex; gap: 8px; justify-content: flex-end; }
+
 /* Responsive */
 @media (max-width: 860px) {
   .app {

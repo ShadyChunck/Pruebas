@@ -1,0 +1,34 @@
+// popup.js
+const overlay = document.getElementById("popup");
+const titulo = document.getElementById("popup-titulo");
+const cuerpo = document.getElementById("popup-cuerpo");
+const acciones = document.getElementById("popup-acciones");
+
+export function mostrarPopup({ encabezado, mensaje, botones }) {
+    titulo.textContent = encabezado;
+    cuerpo.textContent = mensaje;
+
+    acciones.innerHTML = "";
+
+    botones.forEach(btn => {
+        const boton = document.createElement("button");
+        boton.textContent = btn.texto;
+        boton.className   = `btn ${btn.estilo ?? "btn-s"}`;
+        boton.addEventListener("click", () => {
+            cerrarPopup();
+            btn.accion?.();
+        });
+        acciones.appendChild(boton);
+    });
+
+    overlay.classList.add("activo");
+}
+
+export function cerrarPopup() {
+    overlay.classList.remove("activo");
+}
+
+// Cerrar al hacer clic fuera del popup
+overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) cerrarPopup();
+});

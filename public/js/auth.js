@@ -1,6 +1,7 @@
 import { auth, db } from "./firebase.js";
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { doc, getDoc, collection, query, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+//import { createElement } from "react";
 
 const pagina = window.location.pathname.split("/").pop();
 
@@ -22,6 +23,19 @@ onAuthStateChanged(auth, async (usuario) => {
     document.getElementById("perfil_nombre").innerText = datos.name;
     document.getElementById("perfil_correo").innerText = datos.email;
     document.getElementById("perfil_avatar").innerText = datos.name[0];
+
+    if (datos.tipo === "Empleado" && pagina === "agregar_empleado.html") return window.location.href = "panel_inventario.html";
+
+    if (datos.tipo == "Administrador")
+    {
+        const secciones = document.getElementById("secciones");
+        const seccionAdmin = document.createElement("div");
+        seccionAdmin.innerHTML = `
+            <p class="nav-label">Usuarios</p>
+            <a id="nav-agregar-empleado" class="nav-item" href="agregar_empleado.html">Agregar Empleado</a>
+        `
+        secciones.appendChild(seccionAdmin);
+    }
 
 });
 

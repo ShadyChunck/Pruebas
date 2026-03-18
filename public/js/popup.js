@@ -6,7 +6,7 @@ const acciones = document.getElementById("popup-acciones");
 
 export function mostrarPopup({ encabezado, mensaje, botones }) {
     titulo.textContent = encabezado;
-    cuerpo.textContent = mensaje;
+    cuerpo.innerHTML = mensaje;
 
     acciones.innerHTML = "";
 

@@ -6,7 +6,7 @@ import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12
 
 let idProductoEditando = null;
 
-// detectar edición
+// 🔍 detectar edición
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 

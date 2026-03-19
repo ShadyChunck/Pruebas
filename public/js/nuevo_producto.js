@@ -23,11 +23,11 @@ document.getElementById('btn-guardar').addEventListener('click', async () => {
     return;
   } else {
     const base64String = await new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
-    reader.readAsDataURL(archivoImagen);
-  });
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+      reader.readAsDataURL(archivoImagen);
+    });
 
   const producto = {
     nombre: nombreProducto,

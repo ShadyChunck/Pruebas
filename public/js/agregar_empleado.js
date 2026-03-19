@@ -2,19 +2,22 @@ import { auth, db } from "./firebase.js";
 import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const name = document.getElementById("name").value;
-const email = document.getElementById("email").value;
-const password = passwordInput.value;
-const tipo = document.getElementById("tipo").value;
+//const name = document.getElementById("name").value.trim();
+//const email = document.getElementById("email").value.trim();
+//const password = document.getElementById("password").value.trim();
+// const passwordInput = document.getElementById("password");
+// const password = passwordInput.value;
+//const tipo = document.getElementById("tipo").value.trim();
 
 const togglePassword = document.getElementById("togglePassword");
-const passwordInput = document.getElementById("password");
+
 
 togglePassword.addEventListener("click", () => {
 
-    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    const password = document.getElementById('password');
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
 
-    passwordInput.setAttribute("type", type);
+    password.setAttribute("type", type);
 
     togglePassword.classList.toggle("fa-eye");
     togglePassword.classList.toggle("fa-eye-slash");
@@ -27,19 +30,25 @@ document.getElementById("agregar_empleado_form").addEventListener("submit", asyn
 
     try {
 
-        const emailToCheck = email;
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const tipo = document.getElementById("tipo").value.trim();
 
-        fetchSignInMethodsForEmail(auth, emailToCheck)
-            .then((signInMethods) => {
-                if (signInMethods && signInMethods.length > 0) {
-                    console.log(`El correo ${emailToCheck} ya registrado.`);
-                } else {
-                    console.log(`El correo ${emailToCheck} no está registrado.`);
-                }
-            })
-            .catch((error) => {
-                console.error("Error al verificar el correo:", error);
-            });
+
+        // const emailToCheck = email;
+
+        // fetchSignInMethodsForEmail(auth, emailToCheck)
+        //     .then((signInMethods) => {
+        //         if (signInMethods && signInMethods.length > 0) {
+        //             console.log(`El correo ${emailToCheck} ya registrado.`);
+        //         } else {
+        //             console.log(`El correo ${emailToCheck} no está registrado.`);
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         console.error("Error al verificar el correo:", error);
+        // });
 
 
         const credenciales = await createUserWithEmailAndPassword(auth, email, password);

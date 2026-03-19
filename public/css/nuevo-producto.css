@@ -1,4 +1,4 @@
-/* nuevo-producto.css */
+/* nuevo-producto.css 
 
 .img-upload {
   border: 2px dashed var(--gb);
@@ -12,3 +12,62 @@
 }
 .img-upload:hover { border-color: var(--rojo); background: var(--rojo-s); }
 .img-upload span  { font-size: 28px; display: block; margin-bottom: 6px; }
+*/
+
+.img-upload {
+  border: 2px dashed var(--gb);
+  border-radius: var(--r);
+  padding: 28px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--gm);
+  font-size: 13px;
+  transition: border-color .15s, background .15s, transform .1s;
+  background: var(--bl);
+  width: 100%;
+}
+
+.img-upload:hover {
+  border-color: var(--rojo);
+  background: var(--rojo-s);
+}
+
+.img-upload:active {
+  transform: scale(0.98);
+}
+
+.img-upload span {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* preview */
+#preview_imagen {
+  margin-top: 10px;
+  max-width: 150px;
+  border-radius: var(--r);
+  border: 1px solid var(--gb);
+  box-shadow: var(--sombra);
+}
+
+/* modo edición */
+.modo-edicion .card {
+  border-left: 4px solid var(--rojo);
+}
+
+/* botón editar */
+.btn-editar {
+  background: #f59e0b;
+  color: var(--bl);
+}
+
+.btn-editar:hover {
+  background: #d97706;
+}
+
+/* cuando ya hay imagen */
+.img-upload.cargado {
+  border-color: #1E8A3E;
+  background: #E6F4EC;
+}

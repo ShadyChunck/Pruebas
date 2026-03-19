@@ -68,14 +68,14 @@
               </div>
               <div class="g2">
                 <div class="fg">
-                  <label>Categoría</label>
                   <select id="categoria_producto">
-                    <option value="" selected>Seleccionar</option>
-                    <option>Aceite para motor</option>
-                    <option>Filtro de Aceite</option>
-                    <option>Anticongelante</option>
-                    <option>Grasa Lubricante</option>
-                    <option>Limpia Parabrisas</option>
+                    <option value="">Seleccionar</option>
+                    <option value="Aceite para motor">Aceite para motor</option>
+                    <option value="Filtro de Aceite">Filtro de Aceite</option>
+                    <option value="Anticongelante">Anticongelante</option>
+                    <option value="Grasa Lubricante">Grasa Lubricante</option>
+                    <option value="Limpia Parabrisas">Limpia Parabrisas</option>
+                  </select>
                   </select>
                 </div>
 
@@ -163,10 +163,10 @@
             </div>
 
             <div class="form-actions">
-              <button id="btn-cancelar" class="btn btn-s">Cancelar</button>
+              <button type="button" id="btn-cancelar" class="btn btn-s">Cancelar</button>
               <!-- Necesario? -->
               <!-- <button class="btn btn-s">Guardar borrador</button> -->
-              <button type="submit" id="btn-guardar" class="btn btn-p">Guardar Producto</button>
+              <button type="button" id="btn-guardar" class="btn btn-p">Guardar Producto</button>
             </div>
           </div>
 
@@ -182,7 +182,8 @@
 
   </div>
   <script src="js/sidebar.js"></script>
-  <script type="module" src="js/nuevo_producto.js"></script>
+  <!--<script type="module" src="js/nuevo_producto.js"></script>     original   -->
+  <script type="module" src="js/nuevo_producto_editar_solopruebas.js"></script>
   <script type="module" src="js/auth.js"></script>
 </body>
 

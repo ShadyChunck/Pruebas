@@ -19,20 +19,12 @@
         <p>Gestión de Inventario</p>
       </div>
       <nav id="secciones">
-        <!-- <p class="nav-label">Principal</p>
-      <a id="nav-dashboard" class="nav-item" href="index.html">Dashboard</a> -->
-        <p class="nav-label">Principal</p>
-        <a id="nav-dashboard" class="nav-item" href="index.html">Dashboard</a>
         <p class="nav-label">Inventario</p>
-        <a id="nav-inventario" class="nav-item" href="panel_inventario.html">Productos</a>
+        <a id="nav-inventario" class="nav-item" href="index.html">Productos</a>
         <a id="nav-nuevo-producto" class="nav-item" href="panel_nuevo_producto.html">Nuevo Producto</a>
         <p class="nav-label">Ventas</p>
         <a id="nav-nueva-venta" class="nav-item" href="panel_nueva_venta.html">Registro de Ventas</a>
         <a id="nav-ventas" class="nav-item" href="panel_ventas.html">Historial de Ventas</a>
-        <!-- <p class="nav-label">Análisis</p>
-      <a id="nav-reportes" class="nav-item" href="panel_reportes.html">Reportes</a>
-      <p class="nav-label">Sistema</p>
-      <a id="nav-configuracion" class="nav-item" href="panel_configuracion.html">Configuración</a> -->
       </nav>
       <div class="sidebar-perfil">
         <div class="avatar" id="perfil_avatar"></div>
@@ -46,8 +38,8 @@
     <div class="main-wrap">
       <header>
         <div class="h-left">
-          <h2>Nueva Venta (POS)</h2>
-          <span>Ventas › Nueva Venta</span>
+          <h2>Registro de Ventas</h2>
+          <span>Ventas > Nueva Venta</span>
         </div>
         <div class="h-right">
           <button class="btn" id="cerrar_sesion">Cerrar Sesión</button>
@@ -56,16 +48,10 @@
 
       <main>
         <div class="pos">
-
           <!-- Catálogo -->
           <div>
             <div class="search-bar" style="margin-bottom:14px">
               <input type="search" placeholder="Buscar por nombre">
-              <!-- <select>
-                <option>Todas las categorías</option>
-                <option>Audio</option><option>Electrónica</option>
-                <option>Periféricos</option><option>Accesorios</option>
-              </select> -->
             </div>
             <div class="card" style="padding:14px">
               <div class="card-title" style="margin-bottom:12px">Catálogo<small>Clic para agregar al carrito</small>
@@ -88,7 +74,6 @@
             <div class="cart-items" id="prod_seleccionados"></div>
             <div class="cart-summary">
               <div class="sum-row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
-              <!-- <div class="sum-row"><span>Descuento</span><span>— $0.00</span></div> -->
               <div class="sum-row"><span>IVA (16%)</span><span id="iva">$0.00</span></div>
               <div class="sum-total"><span>TOTAL</span><span id="total">$0.00</span></div>
 
@@ -111,17 +96,20 @@
 
         </div>
       </main>
-
-      <footer>
-        <span>Autopartes Hessman v1.0.0 – Gestión de Inventario y Ventas</span>
-        <span>© 2026 · Todos los derechos reservados</span>
-      </footer>
     </div>
-
   </div>
-  <script src="js/sidebar.js"></script>
-  <script type="module" src="js/auth.js"></script>
-  <script type="module" src="js/nueva_venta.js"></script>
-</body>
 
+  <div class="popup-overlay" id="popup">
+    <div class="popup">
+        <div class="popup-titulo" id="popup-titulo"></div>
+        <div class="popup-cuerpo" id="popup-cuerpo"></div>
+        <div class="popup-acciones" id="popup-acciones"></div>
+    </div>
+  </div>
+
+  <script src="js/sidebar.js"></script>
+  <script type="module" src="js/nueva_venta.js"></script>
+  <script type="module" src="js/popup.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
 </html>

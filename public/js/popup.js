@@ -1,8 +1,9 @@
-// popup.js
 const overlay = document.getElementById("popup");
 const titulo = document.getElementById("popup-titulo");
 const cuerpo = document.getElementById("popup-cuerpo");
 const acciones = document.getElementById("popup-acciones");
+
+const pagina = window.location.pathname.split("/").pop();
 
 export function mostrarPopup({ encabezado, mensaje, botones }) {
     titulo.textContent = encabezado;
@@ -28,7 +29,9 @@ export function cerrarPopup() {
     overlay.classList.remove("activo");
 }
 
-// Cerrar al hacer clic fuera del popup
-overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) cerrarPopup();
-});
+if (pagina === "panel_ventas.html")
+{
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) cerrarPopup();
+    });
+}

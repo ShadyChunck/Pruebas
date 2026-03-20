@@ -37,7 +37,7 @@ form.addEventListener("submit", async (e) => {
         
         if (credenciales) {
             console.log("Correo:", credenciales.user.email);
-            window.location.href = "panel_inventario.html"; //index.html
+            window.location.href = "index.html"; //index.html
         }
     } catch (error) {
         passwordError.textContent = "Correo o contraseña incorrecta";
@@ -62,6 +62,6 @@ togglePassword.addEventListener("click", () => {
 // SI YA ESTÁ LOGUEADO
 onAuthStateChanged(auth, (usuario) => {
     if (usuario) {
-        window.location.href = "panel_inventario.html"; //index.html
+        window.location.href = "index.html"; //index.html
     }
 });

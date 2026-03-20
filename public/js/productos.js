@@ -1,4 +1,5 @@
 import { db } from "./firebase.js"
+import { mostrarPopup } from "./popup.js"
 import { doc, deleteDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 function productosTotales() {
@@ -105,10 +106,17 @@ function mostrarProductos() {
         if (!id) return console.error("No hay datos en el botón.");
 
         if (accion === "eliminar") {
-            //Luego hacerlo Popup
-            const confirmar = confirm(`¿Desea eliminar el producto "${btn.dataset.nombre}"?`);
-            if (!confirmar) return;
-            await deleteDoc(doc(db, "productos", id));
+            mostrarPopup({
+                encabezado: `Eliminar ${btn.dataset.nombre}`,
+                mensaje: `
+                    <br>
+                    <p>¿Desea eliminar "${btn.dataset.nombre}" de la base de datos?</p>
+                `,
+                botones: [
+                    { texto: "Cancelar", estilo: "btn-s" },
+                    { texto: "Eliminar", estilo: "btn-d", accion: async () => await deleteDoc(doc(db, "productos", id)) }
+                ]
+            });
         };
 
         // TODO: Luego actualizaremos bien los productos

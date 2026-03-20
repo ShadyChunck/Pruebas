@@ -1,6 +1,6 @@
 import { db } from "./firebase.js";
 import { mostrarPopup } from "./popup.js";
-import { doc, getDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { doc, getDoc, collection, onSnapshot, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
 function mostrarVentas() {
@@ -52,6 +52,7 @@ function mostrarVentas() {
                     tdBotones.style = "display: flex; gap:5px; align-items: center; justify-content: center;";
                     tdBotones.innerHTML = `
                         <button class="btn btn-s" style="padding:4px 9px;font-size:12px" data-id="${documento.id}" data-accion="detalles">Ver Detalles</button>
+                        <button class="btn btn-d" style="padding:4px 9px;font-size:12px" id="btn_eliminar" data-id="${documento.id}" data-nombre="${venta.nombre}" data-accion="eliminar">Eliminar</button>
                     `;
 
                     trFila.appendChild(tdIDVenta);
@@ -79,13 +80,31 @@ function mostrarVentas() {
 
         // Obtener id y accion del producto
         const id = btn.dataset.id;
+
         const info = await getDoc(doc(db, "ventas", id));
         const detalle = info.data();
         const accion = btn.dataset.accion;
 
         if (!id) return console.error("No hay datos en el botón.");
 
-        if (accion === "detalles") {
+        if (accion === "eliminar")
+        {
+            mostrarPopup({
+                encabezado: `Eliminar pedido ${id}`,
+                //Luego se hace el calculo de las ganancias, supongo
+                mensaje: `
+                    <br>
+                    <p>¿Desea eliminar la venta del cliente "${detalle.cliente}" de la base de datos?</p>
+                `,
+                botones: [
+                    { texto: "Cancelar", estilo: "btn-s" },
+                    { texto: "Confirmar", estilo: "btn-d", accion: async () => await deleteDoc(doc(db, "ventas", id)) }
+                ]
+            });
+        }
+
+        if (accion === "detalles")
+        {
             mostrarPopup({
                 encabezado: `Información del pedido ${id}`,
                 //Luego se hace el calculo de las ganancias, supongo

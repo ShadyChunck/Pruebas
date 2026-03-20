@@ -1,4 +1,5 @@
 import { db } from "./firebase.js";
+import { mostrarPopup } from "./popup.js"
 import { addDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const productosElegidos = document.getElementById("prod_seleccionados");
@@ -94,7 +95,16 @@ window.cambiarCantidad = (id, delta) => {
 document.getElementById("btn_cobrar").addEventListener("click", async (e) => {
 
     if (!carrito.length) {
-        alert("El carrito está vacío.");
+        mostrarPopup({
+            encabezado: "Carrito Vacio",
+            mensaje: `
+                <br>
+                <p>El carrito está vacío. Agregue productos antes de cobrar.</p>
+            `,
+            botones: [
+                { texto: "Aceptar", estilo: "btn-s" }
+            ]
+        });
         return;
     }
 
@@ -105,28 +115,51 @@ document.getElementById("btn_cobrar").addEventListener("click", async (e) => {
     }
 
     const nombreCliente = document.getElementById("nombre_cliente").value;
-    const iva = subtotal * 0.16;
-    const total = subtotal + iva;
-    const cantidadPagada = Number(document.getElementById("cantidad_pagada").value);
-    const cambio = cantidadPagada - total;
+    const iva = parseFloat((subtotal * 0.16).toFixed(2));
+    const total = parseFloat((subtotal + iva).toFixed(2));
+    const cantidadPagada = parseFloat(document.getElementById("cantidad_pagada").value);
+    const cambio = parseFloat((cantidadPagada - total).toFixed(2));
 
     if (cambio < 0) {
-        alert(`Hace falta ${cambio * -1} pesos para completar`);
+
+        //Popup
+        mostrarPopup({
+            encabezado: "Pago no completo",
+            mensaje: `
+                <br>
+                <p>Hace falta ${cambio * -1} pesos para completar. Pida al cliente que complete la cantidad faltante.</p>
+            `,
+            botones: [
+                { texto: "Aceptar", estilo: "btn-s" }
+            ]
+        });
         return;
     } else {
         const venta = {
-        cliente: nombreCliente || "Sin registrar",
-        productos: carrito,
-        subtotal: Number(subtotal),
-        iva: Number(iva),
-        total: Number(total),
-        cambio: Number(cambio),
-        fecha: new Date().toLocaleDateString("es-MX"),
-        hora: new Date().toLocaleTimeString("es-MX"),
+            cliente: nombreCliente || "Sin registrar",
+            productos: carrito,
+            subtotal: Number(subtotal),
+            iva: Number(iva),
+            total: Number(total),
+            cambio: Number(cambio),
+            fecha: new Date().toLocaleDateString("es-MX"),
+            hora: new Date().toLocaleTimeString("es-MX"),
         };
 
-        await addDoc(collection(db, "ventas"), venta);
-        alert(`Venta registrada correctamente. Su cambio es de $${cambio}.`);
+        const ventaNueva = await addDoc(collection(db, "ventas"), venta);
+        const ventaID = ventaNueva.id;
+
+        //Popup
+        mostrarPopup({
+            encabezado: "Venta Exitosa",
+            mensaje: `
+                <br>
+                <p>Venta registrada correctamente con el ID: ${ventaID}. Su cambio es de $${cambio}.</p>
+            `,
+            botones: [
+                { texto: "Aceptar", estilo: "btn-s" }
+            ]
+        });
 
         carrito = [];
         document.getElementById("nombre_cliente").value = "";

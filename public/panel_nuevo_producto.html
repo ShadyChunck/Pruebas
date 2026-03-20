@@ -19,12 +19,8 @@
         <p>Gestión de Inventario</p>
       </div>
       <nav id="secciones">
-        <!-- <p class="nav-label">Principal</p>
-      <a id="nav-dashboard" class="nav-item" href="index.html">Dashboard</a> -->
-        <p class="nav-label">Principal</p>
-        <a id="nav-dashboard" class="nav-item" href="index.html">Dashboard</a>
         <p class="nav-label">Inventario</p>
-        <a id="nav-inventario" class="nav-item" href="panel_inventario.html">Productos</a>
+        <a id="nav-inventario" class="nav-item" href="index.html">Productos</a>
         <a id="nav-nuevo-producto" class="nav-item" href="panel_nuevo_producto.html">Nuevo Producto</a>
         <p class="nav-label">Ventas</p>
         <a id="nav-nueva-venta" class="nav-item" href="panel_nueva_venta.html">Registro de Ventas</a>
@@ -66,6 +62,7 @@
               </div>
               <div class="g2">
                 <div class="fg">
+                  <label>Categoría</label>
                   <select id="categoria_producto">
                     <option value="">Seleccionar</option>
                     <option value="Aceite para motor">Aceite para motor</option>
@@ -177,10 +174,20 @@
         <span>© 2026 · Todos los derechos reservados</span>
       </footer>
     </div>
-
   </div>
+
+  <div class="popup-overlay" id="popup">
+    <div class="popup">
+        <div class="popup-titulo" id="popup-titulo"></div>
+        <div class="popup-cuerpo" id="popup-cuerpo"></div>
+        <div class="popup-acciones" id="popup-acciones"></div>
+    </div>
+  </div>
+
   <script src="js/sidebar.js"></script>
-  <script type="module" src="js/nuevo_producto.js"></script>  
+  <script type="module" src="js/nuevo_producto.js"></script>
+  <script type="module" src="js/popup.js"></script>
+  <script type="module" src="js/auth.js"></script>
 </body>
 
 </html>

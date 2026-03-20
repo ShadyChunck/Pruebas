@@ -1,12 +1,10 @@
-// SOLAMENTE PRUEBAS
-
 import { db } from "./firebase.js";
-import { addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { mostrarPopup } from "./popup.js"
+import { doc, getDoc, updateDoc, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 let idProductoEditando = null;
 
-// 🔍 detectar edición
+//Detección de Parámetros
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
@@ -94,10 +92,10 @@ document.getElementById('btn-guardar').addEventListener('click', async () => {
     }
 
     const producto = {
-        nombre: nombreProducto,
+        nombre: nombreProducto || "Sin nombre",
         descripcion: descripcionProducto || "N/A",
-        categoria: categoriaProducto,
-        marca: marcaProducto,
+        categoria: categoriaProducto || "Sin Categoría",
+        marca: marcaProducto || "Sin Marca",
         compra: costo,
         precioCliente: venta,
         cantidad: cantidad
@@ -110,13 +108,34 @@ document.getElementById('btn-guardar').addEventListener('click', async () => {
     if (idProductoEditando) {
         const ref = doc(db, "productos", idProductoEditando);
         await updateDoc(ref, producto);
-        alert("Producto actualizado");
-    } else {
-        await addDoc(collection(db, "productos"), producto);
-        alert("Producto agregado");
-    }
+        const infoProd = await getDoc(ref);
 
-    window.location.href = 'panel_inventario.html';
+        mostrarPopup({
+            encabezado: "Producto Actualizado",
+            mensaje: `
+                <br>
+                <p>Producto "${infoProd.data().nombre}" actualizado en la base de datos con la ID: ${infoProd.id}</p>
+            `,
+            botones: [
+                { texto: "Aceptar", estilo: "btn-s", accion: () => window.location.href = 'panel_inventario.html' }
+            ]
+        });
+    } else {
+        const productoNuevo = await addDoc(collection(db, "productos"), producto);
+        const productoID = productoNuevo.id;
+        const infoProd = await getDoc(doc(db, "productos", productoID));
+
+        mostrarPopup({
+            encabezado: "Producto Agregado",
+            mensaje: `
+                <br>
+                <p>Producto agregado a la base de datos con la ID: ${infoProd.id}</p>
+            `,
+            botones: [
+                { texto: "Aceptar", estilo: "btn-s", accion: () => window.location.href = 'panel_inventario.html' }
+            ]
+        });
+    }
 });
 
 //  cancelar

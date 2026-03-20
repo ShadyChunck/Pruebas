@@ -1,5 +1,6 @@
-import { db } from "./firebase.js";
+import { auth, db } from "./firebase.js";
 import { mostrarPopup } from "./popup.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"
 import { doc, getDoc, collection, onSnapshot, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
@@ -50,11 +51,25 @@ function mostrarVentas() {
 
                     const tdBotones = document.createElement("td");
                     tdBotones.style = "display: flex; gap:5px; align-items: center; justify-content: center;";
-                    tdBotones.innerHTML = `
-                        <button class="btn btn-s" style="padding:4px 9px;font-size:12px" data-id="${documento.id}" data-accion="detalles">Ver Detalles</button>
-                        <button class="btn btn-d" style="padding:4px 9px;font-size:12px" id="btn_eliminar" data-id="${documento.id}" data-nombre="${venta.nombre}" data-accion="eliminar">Eliminar</button>
-                    `;
 
+                    onAuthStateChanged(auth, async (usuario) => {
+                        const usuarioActual = doc(db, "usuarios", usuario.uid);
+                        const usuarioDocumento = await getDoc(usuarioActual);
+                        const datos = usuarioDocumento.data();
+
+                        if (datos.tipo === "Administrador")
+                        {
+                            tdBotones.innerHTML = `
+                                <button class="btn btn-s" style="padding:4px 9px;font-size:12px" data-id="${documento.id}" data-accion="detalles">Ver Detalles</button>
+                                <button class="btn btn-d" style="padding:4px 9px;font-size:12px" id="btn_eliminar" data-id="${documento.id}" data-nombre="${venta.nombre}" data-accion="eliminar">Eliminar</button>
+                            `;
+                        } else {
+                            tdBotones.innerHTML = `
+                                <button class="btn btn-s" style="padding:4px 9px;font-size:12px" data-id="${documento.id}" data-accion="detalles">Ver Detalles</button>
+                            `;
+                        }
+                    });
+                    
                     trFila.appendChild(tdIDVenta);
                     trFila.appendChild(tdFecha);
                     trFila.appendChild(tdCliente);
@@ -87,11 +102,12 @@ function mostrarVentas() {
 
         if (!id) return console.error("No hay datos en el botón.");
 
+        
+        //Cuando se desea eliminar el pedido.
         if (accion === "eliminar")
         {
             mostrarPopup({
                 encabezado: `Eliminar pedido ${id}`,
-                //Luego se hace el calculo de las ganancias, supongo
                 mensaje: `
                     <br>
                     <p>¿Desea eliminar la venta del cliente "${detalle.cliente}" de la base de datos?</p>
@@ -103,6 +119,7 @@ function mostrarVentas() {
             });
         }
 
+        //Para ver detalles
         if (accion === "detalles")
         {
             mostrarPopup({
@@ -189,20 +206,14 @@ function mostrarVentas() {
     });
 
 };
-
-
-
-
-
 mostrarVentas();
+// async function mostrarResultados() {
+//     const gananciasTotales = document.getElementById("gananciaTotal");
 
-async function mostrarResultados() {
-    const gananciasTotales = document.getElementById("gananciaTotal");
+//     const ventas = await getDoc(doc(db, "ventas", "ganancias")); 
+//     const datosVentas = ventas.data();
+//     gananciasTotales.innerText = `$${Number(datosVentas.ventaTotal)}`;
+//     console.log(venta.ventaTotal);
+// };
 
-    const ventas = await getDoc(doc(db, "ventas", "ganancias")); 
-    const datosVentas = ventas.data();
-    gananciasTotales.innerText = `$${Number(datosVentas.ventaTotal)}`;
-    console.log(venta.ventaTotal);
-};
-
-//mostrarResultados();
+// //mostrarResultados();

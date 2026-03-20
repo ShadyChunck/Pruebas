@@ -1,6 +1,7 @@
-import { db } from "./firebase.js"
+import { auth, db } from "./firebase.js"
 import { mostrarPopup } from "./popup.js"
-import { doc, deleteDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"
+import { doc, getDoc, deleteDoc, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 function productosTotales() {
     const totalProductos = document.getElementById("conteoProductos");
@@ -9,7 +10,6 @@ function productosTotales() {
         totalProductos.innerText = `${documentos.size} productos en total`;
     });
 };
-
 
 function mostrarProductos() {
     const tablaProductos = document.getElementById("tabla_productos");
@@ -67,11 +67,25 @@ function mostrarProductos() {
 
                 const tdBotones = document.createElement("td");
                 tdBotones.style = "display: flex; gap:5px; align-items: center; justify-content: center;";
-                tdBotones.innerHTML = `
-                    <button class="btn btn-s" style="padding:4px 9px;font-size:12px" id="btn_editar" data-id="${documento.id}" data-accion="editar">Editar</button>
-                    <button class="btn btn-d" style="padding:4px 9px;font-size:12px" id="btn_eliminar" data-id="${documento.id}" data-nombre="${producto.nombre}" data-accion="eliminar">Eliminar</button>
-                `;
 
+                onAuthStateChanged(auth, async (usuario) => {
+                    const usuarioActual = doc(db, "usuarios", usuario.uid);
+                    const usuarioDocumento = await getDoc(usuarioActual);
+                    const datos = usuarioDocumento.data();
+
+                    if (datos.tipo === "Administrador")
+                    {
+                        tdBotones.innerHTML = `
+                            <button class="btn btn-s" style="padding:4px 9px;font-size:12px" id="btn_editar" data-id="${documento.id}" data-accion="editar">Editar</button>
+                            <button class="btn btn-d" style="padding:4px 9px;font-size:12px" id="btn_eliminar" data-id="${documento.id}" data-nombre="${producto.nombre}" data-accion="eliminar">Eliminar</button>
+                        `;
+                    } else {
+                            tdBotones.innerHTML = `
+                                <button class="btn btn-s" style="padding:4px 9px;font-size:12px" id="btn_editar" data-id="${documento.id}" data-accion="editar">Editar</button>
+                            `;
+                    }
+                });
+                
                 trFila.appendChild(tdImagen);
                 trFila.appendChild(tdID);
                 trFila.appendChild(tdProducto);
@@ -85,9 +99,6 @@ function mostrarProductos() {
                 
                 tablaProductos.appendChild(trFila);
                 console.log(`Fila Insertada: ${documento.id}`);
-
-                
-
             });
         } catch (e) {
             console.log(e);
@@ -99,7 +110,7 @@ function mostrarProductos() {
         const btn = e.target.closest("button");
         if (!btn) return;
 
-        // Obtener id y accion del producto
+        //Obtener id y accion del producto
         const id = btn.dataset.id;
         const accion = btn.dataset.accion;
 
@@ -119,7 +130,6 @@ function mostrarProductos() {
             });
         };
 
-        // TODO: Luego actualizaremos bien los productos
         if (accion === "editar") {
             window.location.href = `panel_nuevo_producto.html?id=${id}`;
         }

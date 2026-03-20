@@ -23,3 +23,4 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 export { auth, db };
+//Este codigo ha sido proporcionado por Firebase Console en la sección de ajustes.

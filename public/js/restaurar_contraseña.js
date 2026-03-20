@@ -12,16 +12,6 @@ form.addEventListener("submit", async (e) => {
     try {
         await sendPasswordResetEmail(auth, emailInput);
         console.log("Correo Enviado");
-
-        // let mensajeSpam = document.createElement("p");
-        // mensajeSpam.textContent = "Se ha enviado un correo para reestablecer la contraseña. Por favor, revise su bandeja de entrada y también la carpeta de spam.";
-        // mensajeSpam.style.color = "green";
-        // mensajeSpam.style.textAlign = "center";
-        // mensajeSpam.style.marginTop = "1rem";
-
-        // mensaje.appendChild(mensajeSpam);
-
-        
     } catch (error) {
         console.error("Error: ", error);
     }

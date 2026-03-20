@@ -66,7 +66,7 @@ if (inputImagen && preview) {
     });
 }
 
-//  guardar / editar
+// guardar / editar
 document.getElementById('btn-guardar').addEventListener('click', async () => {
     console.log("CLICK GUARDAR");
 
@@ -117,7 +117,7 @@ document.getElementById('btn-guardar').addEventListener('click', async () => {
                 <p>Producto "${infoProd.data().nombre}" actualizado en la base de datos con la ID: ${infoProd.id}</p>
             `,
             botones: [
-                { texto: "Aceptar", estilo: "btn-s", accion: () => window.location.href = 'panel_inventario.html' }
+                { texto: "Aceptar", estilo: "btn-s", accion: () => window.location.href = 'index.html' }
             ]
         });
     } else {
@@ -132,7 +132,7 @@ document.getElementById('btn-guardar').addEventListener('click', async () => {
                 <p>Producto agregado a la base de datos con la ID: ${infoProd.id}</p>
             `,
             botones: [
-                { texto: "Aceptar", estilo: "btn-s", accion: () => window.location.href = 'panel_inventario.html' }
+                { texto: "Aceptar", estilo: "btn-s", accion: () => window.location.href = 'index.html' }
             ]
         });
     }

@@ -1,16 +1,8 @@
 import { auth, db } from "./firebase.js";
-import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-//const name = document.getElementById("name").value.trim();
-//const email = document.getElementById("email").value.trim();
-//const password = document.getElementById("password").value.trim();
-// const passwordInput = document.getElementById("password");
-// const password = passwordInput.value;
-//const tipo = document.getElementById("tipo").value.trim();
-
 const togglePassword = document.getElementById("togglePassword");
-
 
 togglePassword.addEventListener("click", () => {
 
@@ -35,30 +27,14 @@ document.getElementById("agregar_empleado_form").addEventListener("submit", asyn
         const password = document.getElementById("password").value.trim();
         const tipo = document.getElementById("tipo").value.trim();
 
-
-        // const emailToCheck = email;
-
-        // fetchSignInMethodsForEmail(auth, emailToCheck)
-        //     .then((signInMethods) => {
-        //         if (signInMethods && signInMethods.length > 0) {
-        //             console.log(`El correo ${emailToCheck} ya registrado.`);
-        //         } else {
-        //             console.log(`El correo ${emailToCheck} no está registrado.`);
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.error("Error al verificar el correo:", error);
-        // });
-
-
         const credenciales = await createUserWithEmailAndPassword(auth, email, password);
         const user = credenciales.user;
 
         const usuario = {
             uid: user.uid,
             name: name,
-            email: email,//Por el momento tendrá la contraseña en el documento hasta que terminemos bien con el proyecto
-            password: password,
+            email: email,
+            password: password, //Por el momento tendrá la contraseña en el documento hasta que terminemos bien con el proyecto
             tipo: tipo
         };
 

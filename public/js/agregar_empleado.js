@@ -40,7 +40,16 @@ document.getElementById("agregar_empleado_form").addEventListener("submit", asyn
 
         await setDoc(doc(db, "usuarios", user.uid), usuario);
 
-        alert(`Registrado como: Usuario ${name}, Tipo: ${tipo}`);
+        mostrarPopup({
+            encabezado: `Usuario Registrado`,
+            mensaje: `
+                <br>
+                <p>Registrado como "${name}". Tipo de cuenta: ${tipo}.</p>
+            `,
+            botones: [
+                { texto: "Confirmar", estilo: "btn-d" }
+            ]
+        });
 
     } catch (error) {
         console.error("Error al agregar usuario:", error);

@@ -1,4 +1,5 @@
 import { auth, db } from "./firebase.js";
+import { mostrarPopup } from "./popup.js";
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -53,6 +54,17 @@ document.getElementById("agregar_empleado_form").addEventListener("submit", asyn
 
     } catch (error) {
         console.error("Error al agregar usuario:", error);
-        alert("Hubo un error al agregar el usuario. Por favor, intenta nuevamente.");
+
+        mostrarPopup({
+            encabezado: `Error al agregar usuario`,
+            mensaje: `
+                <br>
+                <p>Hubo un error al agregar el usuario: ${error}</p>
+            `,
+            botones: [
+                { texto: "Confirmar", estilo: "btn-d" }
+            ]
+        });
+
     }
 });

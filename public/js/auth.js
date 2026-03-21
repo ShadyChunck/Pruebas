@@ -1,7 +1,6 @@
 import { auth, db } from "./firebase.js";
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { doc, getDoc, collection, query, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-//import { createElement } from "react";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const pagina = window.location.pathname.split("/").pop();
 
@@ -35,14 +34,6 @@ onAuthStateChanged(auth, async (usuario) => {
             <a id="nav-agregar-empleado" class="nav-item" href="agregar_empleado.html">Agregar Empleado</a>
         `
         secciones.appendChild(seccionAdmin);
-
-        // const accionesVentas = document.getElementById("tablaVentas");
-        // const btn_eliminar = document.createElement("td");
-        //     btn_eliminar.style = "display: flex; gap:5px; align-items: center; justify-content: center;";
-        //     btn_eliminar.innerHTML = `
-        //         <button class="btn btn-d" style="padding:4px 9px;font-size:12px" id="btn_eliminar" data-id="${documento.id}" data-nombre="${venta.nombre}" data-accion="eliminar">Eliminar</button>
-        //     `;
-        // accionesVentas.appendChild(btn_eliminar);
     }
 
 });

@@ -45,7 +45,7 @@ document.getElementById("agregar_empleado_form").addEventListener("submit", asyn
             encabezado: `Usuario Registrado`,
             mensaje: `
                 <br>
-                <p>Registrado como "${name}". Tipo de cuenta: ${tipo}.</p>
+                <p>Registrado como "${usuario.name}". Tipo de cuenta: ${usuario.tipo}.</p>
             `,
             botones: [
                 { texto: "Confirmar", estilo: "btn-d" }

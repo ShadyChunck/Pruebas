@@ -85,7 +85,7 @@ function mostrarVentas() {
             });
 
         } catch (e) {
-
+  Y
         }
     });
 

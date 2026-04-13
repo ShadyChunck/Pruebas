@@ -46,8 +46,7 @@ onAuthStateChanged(auth, async (usuario) => {
         const seccionAdmin = document.createElement("div");
         seccionAdmin.innerHTML = `
             <p class="nav-label">Usuarios</p>
-            <a id="nav-agregar-empleado" class="nav-item" href="agregar_empleado.html">Agregar Empleado</a>
-        `
+            <a id="nav-agregar-empleado" class="nav-item" href="agregar_empleado.html">Agregar Empleado</a>        `
         secciones.appendChild(seccionAdmin);
     }
 

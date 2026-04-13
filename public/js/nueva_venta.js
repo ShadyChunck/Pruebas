@@ -1,6 +1,6 @@
 import { db } from "./firebase.js";
 import { mostrarPopup } from "./popup.js"
-import { addDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { addDoc, onSnapshot, collection, doc, updateDoc, getDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const productosElegidos = document.getElementById("prod_seleccionados");
 const productosDisponibles = document.getElementById("productos_disponibles");
@@ -108,6 +108,47 @@ document.getElementById("btn_cobrar").addEventListener("click", async (e) => {
         return;
     }
 
+    const pago = document.getElementById("cantidad_pagada").value;
+    if(!pago || pago.trim() === "") {
+        mostrarPopup({
+            encabezado: "Pago Incompleto",
+            mensaje: `
+                <br>
+                <p>Por favor, ingrese la cantidad requerida.</p>
+            `,
+            botones: [
+                { texto: "Aceptar", estilo: "btn-s" }
+            ]
+        });
+        return;
+    }
+
+
+    //verificacion de stock
+    for (const p of carrito) {
+        const productoRef = doc(db, "productos", p.id);
+        const productoSnap = await getDoc(productoRef);
+        const stockActual = productoSnap.data().cantidad;
+
+        if(p.cantidad > stockActual) {
+            mostrarPopup({
+                encabezado: "Stock Insuficiente",
+                mensaje: `
+                    <br>
+                    <p>El producto "${p.nombre}" tiene un stock insuficiente.</p>
+                `,
+                botones: [
+                    { texto: "Aceptar", estilo: "btn-s" }
+                ]
+            });
+            return;
+        }
+    }
+
+//verificacion de stock
+
+
+
     //Sumamos el precio de todos los productos registrados.
     let subtotal = 0;
     for (const p of carrito) {
@@ -148,6 +189,17 @@ document.getElementById("btn_cobrar").addEventListener("click", async (e) => {
 
         const ventaNueva = await addDoc(collection(db, "ventas"), venta);
         const ventaID = ventaNueva.id;
+
+        //actualiza stock en la DB
+        for (const p of carrito) {
+            const productoRef = doc(db, "productos", p.id);
+            const productoSnap = await getDoc(productoRef);
+            const stockActual = productoSnap.data().cantidad;
+            await updateDoc(productoRef, {
+                cantidad: stockActual - p.cantidad
+            });
+        }
+//actiualiza stock en la DB
 
         //Popup
         mostrarPopup({

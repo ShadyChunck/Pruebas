@@ -149,7 +149,7 @@ function mostrarVentas() {
                     <div class="card-title">Productos</div>
                     <div class="fg">
                         ${detalle.productos.map(p => `
-                            <p>------------------------------------</p>
+                            <p>-------------------------------------------------------------------</p>
                             <div class="fg">
                                 <br>
                                 <label>Nombre del Producto</label>
@@ -171,7 +171,7 @@ function mostrarVentas() {
                             </div>
                             
                             `).join("")}
-                            <p>------------------------------------</p>
+                            <p>-------------------------------------------------------------------</p>
                     </div>
                     <div class="card-title">Montos</div>
                     <div class="g2">
@@ -189,7 +189,7 @@ function mostrarVentas() {
                         </div>
                         <div class="fg">
                             <label>Cantidad Pagada</label>
-                            <p>$${detalle.total + detalle.cambio}</p>
+                            <p>$${detalle.total + (detalle.cambio)}</p>
                         </div>
                         <div class="fg">
                             <label>Cambio</label>

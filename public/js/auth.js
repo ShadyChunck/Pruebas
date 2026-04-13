@@ -47,7 +47,6 @@ onAuthStateChanged(auth, async (usuario) => {
         seccionAdmin.innerHTML = `
             <p class="nav-label">Usuarios</p>
             <a id="nav-agregar-empleado" class="nav-item" href="agregar_empleado.html">Agregar Empleado</a>
-            <a id="nav-sesiones" class="nav-item" href="sesiones.html">Registro de Sesiones</a>
         `
         secciones.appendChild(seccionAdmin);
     }
